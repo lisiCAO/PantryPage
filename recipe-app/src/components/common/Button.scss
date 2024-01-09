@@ -2,13 +2,12 @@
 @import './../../assets/styles/mixins';
 
 .button {
-  @include button-style($primary-color, white); // 基础样式
-  margin: $spacing-small; // 使用variables中定义的间距
+  @include button-style($primary-color, white); 
+  margin: $spacing-small; 
   font-size: $font-size-normal;
   text-transform: uppercase;
   font-weight: bold;
 
-  // 修饰符
   &--add {
     @include button-style($secondary-color, white);
   }
@@ -34,13 +33,3 @@
     cursor: not-allowed;
   }
 }
-
-/**
-  * 文本样式
-
-<Button className="button button--add">添加</Button>
-<Button className="button button--delete">删除</Button>
-<Button className="button button--edit">编辑</Button>
-// ... 其他按钮
-
-  */
