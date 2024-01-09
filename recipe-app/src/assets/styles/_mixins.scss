@@ -41,10 +41,20 @@
 }
 
 // background-color, color, border-color
-@mixin adjust-color($background, $text-darken-amount: 0, $border-lighten-amount: 0) {
+@mixin adjust-color($background, $border-lighten-amount: 0) {
   background-color: $background;
-  color: lighten($background, $text-darken-amount);
+  color: if(is-light($background), $font-color-dark, $font-color-light); // 自动决定字体颜色
   border-color: lighten($background, $border-lighten-amount);
+}
+
+
+// Function to determine if the color is light
+@function is-light($color) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+  $brightness: round(($red * 299) + ($green * 587) + ($blue * 114)) / 1000;
+  @return $brightness > 128; // 128 is the midpoint
 }
 
 // Modal

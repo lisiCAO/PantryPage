@@ -9,6 +9,7 @@ const Navbar = ({ onLoginClick, isLoggedIn, user, onLogout, navigateTo }) => {
     const handleLogoClick = () => {
         navigateTo('home');
     }
+    
     return (
         <nav className="navbar">
             <div className="navbar__logo">

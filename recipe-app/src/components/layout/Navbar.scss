@@ -23,6 +23,7 @@
   }
 
   &__title {
+    
     @include text-style($font-size-large);
     padding: 0.5rem 1rem;
     border-radius: $border-radius;
