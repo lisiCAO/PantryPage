@@ -22,13 +22,14 @@
       max-width: 800px; // up to 800px
 
         &__image {
-            max-width: 100%; // no overflow
+            max-width: 70%; // no overflow
             height: auto; // keep aspect ratio
             border-radius: $border-radius-large;
-
             margin-right: $spacing-medium;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
         // other styles...
     }
 
