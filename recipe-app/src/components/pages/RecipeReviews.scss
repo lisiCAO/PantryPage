@@ -5,6 +5,7 @@
     max-width: $max-container-width;
     width: 100%;
     margin: auto;
+    padding: $spacing-large;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,15 +14,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
     &__form {
-        margin-left:0;
-        margin-right:0;
-        width: 100%;
-        margin-bottom: $spacing-large;
-        background-color: $background-color-dark;
-        color: $font-color-light;
-        padding: $spacing-medium;
-        border-radius: $border-radius;
-        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 95%;
     }
 
     &__loader {
@@ -39,11 +32,15 @@
     }
     &__list {
         margin-bottom: $spacing-medium;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    
 }
 
 .review {
+    width: 95%;
     background-color: white;
     padding: $spacing-small;
     margin-bottom: $spacing-small;
