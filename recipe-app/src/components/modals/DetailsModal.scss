@@ -2,24 +2,21 @@
 @import './../../assets/styles/mixins';
 
 .details-modal {
-    @include modal-style; // 使用 modal-style 混合宏
+    @include modal-style; 
     display: flex;
 
     .detail-content {
-        // 如果需要为 DetailContent 定制样式
-        // 保持与 DetailContent 组件的样式一致
         &__image{
             width:200px;
         }
     }
 
     .button {
-        margin: $spacing-small; // 使用全局变量
-        @include button-style($primary-color, white); // 使用 button-style 混合宏
+        margin: $spacing-small; 
+        @include button-style($primary-color, white); 
 
         &--edit {
             @include button-style($secondary-color, white);
         }
-        // ...其他按钮样式
     }
 }

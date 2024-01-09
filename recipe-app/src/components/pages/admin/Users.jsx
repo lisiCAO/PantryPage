@@ -118,7 +118,7 @@ const Users = () => {
     return (
         <div>
             <div className="top-bar">
-                <Button className="btn-create" onClick={() => setShowCreateModal(true)}>Add New</Button>
+                <Button className="button--add" onClick={() => setShowCreateModal(true)}>Add New</Button>
                 <SearchBar value={searchTerm} onChange={handleSearch} />
             </div>
             <Table 

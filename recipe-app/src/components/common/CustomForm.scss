@@ -4,7 +4,7 @@
 .custom-form {
   @include container-style;
   padding: $spacing-medium;
-  background-color: $background-color-light; // 根据需要调整
+  background-color: $background-color-light; 
   border-radius: $border-radius;
 
   &__field {
@@ -25,7 +25,7 @@
     @include button-style($primary-color, white);
   }
 
-  // 响应式调整
+  // Responsive
   @include respond-to('tablet') {
     padding: $spacing-small;
   }
