@@ -27,7 +27,31 @@
         font-size: $font-size-normal;
     
         .loading-spinner {
-            // add loading amination
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+            
+            &::after {
+                content: "";
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 2px solid $primary-color;
+                border-top-color: transparent;
+                animation: spin 1s linear infinite;
+            }
+            
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
         }
     }
     &__list {
@@ -36,6 +60,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 }
 
@@ -43,7 +68,7 @@
     width: 95%;
     background-color: white;
     padding: $spacing-small;
-    margin-bottom: $spacing-small;
+    margin-bottom: $spacing-medium;
     border-radius: $border-radius-small;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s, transform 0.2s;
