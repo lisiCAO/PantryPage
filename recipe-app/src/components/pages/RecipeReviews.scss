@@ -34,55 +34,53 @@
         font-size: $font-size-normal;
     
         .loading-spinner {
-            // 添加加载动画或图标
+            // add loading amination
         }
+    }
+    &__list {
+        margin-bottom: $spacing-medium;
     }
     
 }
 
-.reviews {
-    &__list {
-        margin-bottom: $spacing-medium;
+.review {
+    background-color: white;
+    padding: $spacing-small;
+    margin-bottom: $spacing-small;
+    border-radius: $border-radius-small;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.2s;
+
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
     }
 
-    .review {
-        background-color: white;
-        padding: $spacing-small;
+    &__rating {
+        color: $primary-color;
+        font-size: $font-size-large;
         margin-bottom: $spacing-small;
-        border-radius: $border-radius-small;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s, transform 0.2s;
+    }
 
-        &:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transform: translateY(-2px);
-        }
+    &__content {
+        color: $font-color;
+        margin-bottom: $spacing-small;
+    }
 
-        &__rating {
-            color: $primary-color;
-            font-size: $font-size-large;
-            margin-bottom: $spacing-small;
-        }
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: $font-size-small;
+        color: $text-color-light;
+        margin-top: $spacing-small;
+    }
 
-        &__content {
-            color: $font-color;
-            margin-bottom: $spacing-small;
-        }
+    &__user {
+        font-weight: bold;
+    }
 
-        &__footer {
-            display: flex;
-            justify-content: space-between;
-            font-size: $font-size-small;
-            color: $text-color-light;
-            margin-top: $spacing-small;
-        }
-
-        &__user {
-            font-weight: bold;
-        }
-
-        &__date {
-            opacity: 0.8;
-        }
+    &__date {
+        opacity: 0.8;
     }
 }
+
