@@ -1,4 +1,4 @@
-// 媒体查询
+// media
 @mixin respond-to($media) {
   @if $media == 'phone' {
     @media (max-width: 600px) { @content; }
@@ -8,8 +8,7 @@
     @media (max-width: 1200px) { @content; }
   }
 }
-
-// 按钮样式
+// button
 @mixin button-style($bg-color, $text-color) {
   background-color: $bg-color;
   color: $text-color;
@@ -23,35 +22,32 @@
     background-color: darken($bg-color, 10%);
   }
 }
-
-// 文本样式
+// text
 @mixin text-style($font-size, $color: $font-color) {
   font-size: $font-size;
   color: $color;
 }
 
-// 容器样式
 @mixin container-style($padding: $spacing-medium) {
   padding: $padding;
   margin: auto;
   max-width: 1200px;
 }
-
-// 网格布局
+// layout
 @mixin grid-layout($columns: 3, $gap: $spacing-medium) {
   display: grid;
   grid-template-columns: repeat($columns, 1fr);
   gap: $gap;
 }
 
-// 背景和文字颜色调整
+// background-color, color, border-color
 @mixin adjust-color($background, $text-darken-amount: 0, $border-lighten-amount: 0) {
   background-color: $background;
-  color: darken($background, $text-darken-amount);
+  color: lighten($background, $text-darken-amount);
   border-color: lighten($background, $border-lighten-amount);
 }
 
-// Modal样式
+// Modal
 @mixin modal-style {
   background: white;
   padding: $spacing-medium;
@@ -62,7 +58,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-// 悬停和焦点样式
+// hover and focus
 @mixin hover-focus($color: $primary-color, $transform: translateY(-2px)) {
   &:hover, &:focus {
     background-color: $color;

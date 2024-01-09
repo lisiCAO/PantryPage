@@ -2,12 +2,12 @@
 @import './../../assets/styles/mixins';
 
 .message {
-  @include text-style($font-size-normal); // 使用mixin
+  @include text-style($font-size-normal); 
   padding: $spacing-small;
   margin: $spacing-small 0;
   border-radius: $border-radius;
   text-align: center;
-  border: 1px solid transparent; // 默认边框
+  border: 1px solid transparent; // default
 
   &--success {
     @include adjust-color($success-color, 50%, 20%);
@@ -23,6 +23,30 @@
 
   &--error {
     @include adjust-color($error-color, 50%, 20%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    animation: fadeIn 0.3s ease-in-out; 
+  
+    &:before {
+      content: "\26A0"; // ⚠
+      padding-right: 10px;
+    }
+  }
+  
+  // 动画效果
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
+
+
 
