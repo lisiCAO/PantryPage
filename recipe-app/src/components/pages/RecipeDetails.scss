@@ -20,6 +20,8 @@
     .detail-content, .reviews-container {
       width: 100%; // container width
       max-width: 800px; // up to 800px
+    }
+    .detail-content {
 
         &__image {
             max-width: 70%; // no overflow
