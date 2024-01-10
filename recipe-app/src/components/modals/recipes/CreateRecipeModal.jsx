@@ -1,7 +1,6 @@
 import React from 'react';
 import FormModal from '../FormModal.jsx';
 import recipeConfig from './recipeConfig.js';
-import './CreateRecipeModal.scss';
 const CreateRecipeModal = ({ isOpen, onClose, onCreate }) => {
     return (
         <FormModal

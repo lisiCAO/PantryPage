@@ -1,7 +1,6 @@
 import React from 'react';
 import FormModal from '../FormModal.jsx';
 import reviewConfig from './reviewConfig.js';
-import './CreateReviewModal.scss';
 const CreateReviewModal = ({ isOpen, onClose, onCreate }) => {
     return (
         <FormModal

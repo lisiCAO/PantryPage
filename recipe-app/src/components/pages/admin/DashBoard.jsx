@@ -21,7 +21,7 @@ const Dashboard = ({ onCardClick })=> {
     }
 
     if (!dashboardData) {
-        return <div>Loading...</div>; // 考虑使用更复杂的加载指示器
+        return <div>Loading...</div>; // TODO: Add spinner
     }
 
     return (
