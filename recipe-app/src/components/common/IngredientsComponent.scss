@@ -1,0 +1,11 @@
+@import './../../assets/styles/variables';
+@import './../../assets/styles/mixins';
+.recipe-detail__ingredients {
+    list-style-type: none;
+    padding: 0;
+
+    .ingredient-item {
+        @include text-style($font-size-normal);
+        margin-bottom: $spacing-small;
+    }
+}

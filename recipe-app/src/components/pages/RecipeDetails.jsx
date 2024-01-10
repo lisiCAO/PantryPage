@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import DetailContent from './../common/DetailContent';
+// import RecipeMetadataComponent from './../common/RecipeMetadataComponent';
+import IngredientsComponent from './../common/IngredientsComponent';
 import FavoriteButton from './../common/FavoriteButton';
 import Message from './../common/Message';
 import { MessageContext } from './../../contexts/MessageContext';
@@ -10,18 +12,17 @@ const RecipeDetail = ({ recipe, onToggleFavorite }) => {
         title: 'name',
         image: 'imagePath',
         instructions: 'instructions',
-        ingredients: 'ingredients',
         createdBy: 'createdBy',
-        createdAt: 'createdAt',
-        ignoreFields: ['id', 'isFavorited']
+        updatedAt: 'updatedAt',
+        ignoreFields: ['id', 'isFavorited','createdAt', 'ingredients']
     };
 
     const { message } = useContext(MessageContext);
 
-
     return (
         <div className="recipe-detail-container">
             <DetailContent data={recipe} config={config} />
+            <IngredientsComponent ingredients={recipe.ingredients} />
             <FavoriteButton 
                 isFavorited={recipe.isFavorited} 
                 onToggle={() => onToggleFavorite(recipe.id)} 

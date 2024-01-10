@@ -57,6 +57,7 @@ const Home = () => {
             // update selected recipe's favorite status
             const updatedRecipe = { ...data, isFavorited: recipe.isFavorited };
             setSelectedRecipe(updatedRecipe);
+            console.log(updatedRecipe);
         })
         .catch(error => {
             console.error(error);

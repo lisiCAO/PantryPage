@@ -1,37 +1,53 @@
 @import './../../assets/styles/variables';
 @import './../../assets/styles/mixins';
-
 .recipe-detail-container {
     @include container-style; 
-    margin: $spacing-medium auto;
-
-    @include respond-to('phone') {
-        padding: $spacing-medium $spacing-small;
-    }
-
     width: 90%;
     max-width: $max-container-width;
-    min-width: 300px;
-    margin: $spacing-unit auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    .detail-content, .reviews-container {
-      width: 100%; // container width
-      max-width: 800px; // up to 800px
-    }
+
     .detail-content {
+        width: 100%;
+        max-width: 800px;
+
+        &__title {
+            @include text-style($font-size-large);
+            margin-bottom: $spacing-small;
+        }
 
         &__image {
-            max-width: 70%; // no overflow
-            height: auto; // keep aspect ratio
+            width: 100%;
+            height: auto;
+            margin-bottom: $spacing-unit;
             border-radius: $border-radius-large;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
-        // other styles...
+
+        &__author-info, &__update-time {
+            @include text-style($font-size-small, $text-color-light);
+            margin-bottom: $spacing-small;
+        }
+
+        &__instruction, &__ingredients {
+            @include text-style($font-size-normal);
+            margin-bottom: $spacing-unit;
+        }
     }
-    // other styles...
+
+    .favorite-button {
+        @include button-style($primary-color, $font-color-light);
+        margin: $spacing-medium 0;
+    }
+
+    .reviews-container {
+        margin-top: $spacing-large;
+    }
+
+    @include respond-to('phone') {
+        .detail-content__image {
+            max-width: 100%;
+        }
+    }
 }
+

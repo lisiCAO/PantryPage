@@ -1,0 +1,14 @@
+@import './../../assets/styles/variables';
+@import './../../assets/styles/mixins';
+.detail-content__image-container {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: $border-radius-large;
+    margin-right: $spacing-small; 
+}
+
+.detail-content__image {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius-large;
+}

@@ -1,0 +1,7 @@
+@import './../../assets/styles/variables';
+@import './../../assets/styles/mixins';
+.detail-content__instruction {
+    width: 100%;
+    margin: $spacing-unit 0;
+    text-align: start;
+}

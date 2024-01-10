@@ -79,7 +79,7 @@ class RecipeController extends Controller
     public function show(string $id): JsonResponse
     {
         try {
-            $recipe = Recipe::findOrFail($id);
+            $recipe = Recipe::with('ingredients')->findOrFail($id);
             return $this->sendResponse(new RecipeDetailResource($recipe), 'Recipe fetched by ID successfully');
         } catch (\Exception $e) {
             Log::error('Error fetching recipe: ' . $e->getMessage());
