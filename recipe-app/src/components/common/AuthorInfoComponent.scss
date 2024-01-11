@@ -1,6 +1,8 @@
 @import './../../assets/styles/variables';
 @import './../../assets/styles/mixins';
 .detail-content__author-info {
+    
     margin: $spacing-unit 0;
-    // ...others...
+    font-size: $font-size-small;
+    color: $text-color-light;
 }

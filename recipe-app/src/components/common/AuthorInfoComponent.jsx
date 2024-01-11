@@ -1,4 +1,5 @@
 import React from 'react';
+import './AuthorInfoComponent.scss';
 
 const AuthorInfoComponent = ({ author }) => (
     <div className="detail-content__author-info">

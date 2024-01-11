@@ -2,6 +2,9 @@
 @import './../../assets/styles/mixins';
 .detail-content__update-time {
     margin: $spacing-unit 0;
-    
+    font-size: $font-size-small;
+    color: $text-color-light;
     // ...other...
 }
+
+

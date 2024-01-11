@@ -4,35 +4,39 @@
     @include container-style; 
     width: 90%;
     max-width: $max-container-width;
+    margin: auto; // 确保容器居中
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .detail-content {
-        width: 100%;
-        max-width: 800px;
+        width: 100%; 
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-gap: $spacing-unit;
 
+        &__title, &__image-container, &__metadata {
+            grid-column: 1 / -1; 
+        }
+        
         &__title {
             @include text-style($font-size-large);
             margin-bottom: $spacing-small;
         }
 
         &__image {
-            width: 100%;
+            width: 70%;
             height: auto;
             margin-bottom: $spacing-unit;
             border-radius: $border-radius-large;
-        }
 
-        &__author-info, &__update-time {
-            @include text-style($font-size-small, $text-color-light);
-            margin-bottom: $spacing-small;
         }
 
         &__instruction, &__ingredients {
             @include text-style($font-size-normal);
             margin-bottom: $spacing-unit;
         }
+
     }
 
     .favorite-button {
@@ -45,6 +49,10 @@
     }
 
     @include respond-to('phone') {
+        .detail-content {
+            grid-template-columns: 1fr; 
+        }
+
         .detail-content__image {
             max-width: 100%;
         }
