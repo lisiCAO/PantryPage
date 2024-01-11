@@ -3,7 +3,7 @@ import './Sidebar.scss';
 
 const Sidebar = ({ setActiveTab, category}) => {
     const renderMenuItems = () => {
-        if (category === 'admin') {
+        if (category === "admin") {
             return (
                 <>
                     <li onClick={() => setActiveTab('dashboard')} className="sidebar__menu__item">Dashboard</li>

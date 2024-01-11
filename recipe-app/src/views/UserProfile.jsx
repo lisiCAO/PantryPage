@@ -5,7 +5,7 @@ import UserRecipes from '../components/pages/regular/UserRecipes';
 import UserReviews from '../components/pages/regular/UserReviews';
 import UserFavorites from '../components/pages/regular/UserFavorites';
 import { UserContext } from './../contexts/UserContext';
-import "./UserProfile.scss";
+import './UserProfile.scss';
 
 function UserProfile() {
     const [activeTab, setActiveTab] = useState('details');

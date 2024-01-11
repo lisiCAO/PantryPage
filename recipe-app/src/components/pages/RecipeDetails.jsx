@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import DetailContent from './../common/DetailContent';
-// import RecipeMetadataComponent from './../common/RecipeMetadataComponent';
 import IngredientsComponent from './../common/IngredientsComponent';
 import FavoriteButton from './../common/FavoriteButton';
 import Message from './../common/Message';

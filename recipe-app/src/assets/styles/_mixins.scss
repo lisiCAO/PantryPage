@@ -1,4 +1,5 @@
 // media
+@use "sass:math";
 @mixin respond-to($media) {
   @if $media == 'phone' {
     @media (max-width: 600px) { @content; }
@@ -53,7 +54,7 @@
   $red: red($color);
   $green: green($color);
   $blue: blue($color);
-  $brightness: round(($red * 299) + ($green * 587) + ($blue * 114)) / 1000;
+  $brightness: math.div(($red * 299) + ($green * 587) + ($blue * 114), 1000);
   @return $brightness > 128; // 128 is the midpoint
 }
 
