@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import FavoriteButton from './FavoriteButton';
+import defaultImage from './../../assets/image/default.png';
 import './RecipeCard.scss';
 
 const RecipeCard = ({ recipe, onOpenDetails, onDelete, onToggleFavorite }) => {
@@ -16,7 +17,7 @@ const RecipeCard = ({ recipe, onOpenDetails, onDelete, onToggleFavorite }) => {
 
     return (
         <div className="recipe-card" onClick={() => onOpenDetails(recipe)}>
-            <img src={`http://localhost:8000${recipe.imagePath}`} alt={recipe.name} className="recipe-card__image" />
+            <img src={`http://localhost:8000${recipe.imagePath}`} onError={(e) => { e.target.onerror = null; e.target.src = defaultImage; }} alt={recipe.name} className="recipe-card__image" />
             <div className="recipe-card__info">
                 <h3>{recipe.name}</h3>
                 <p>Comments: {recipe.reviewsCount}</p>

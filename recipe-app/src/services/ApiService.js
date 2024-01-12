@@ -1,5 +1,31 @@
 // Path context: src/services/ApiService.js
 const API_BASE_URL = process.env.REACT_APP_API_URL;
+const useMockData = process.env.REACT_APP_USE_MOCK_DATA === 'true';
+
+// mock data
+const mockRecipesList = {"success":true,"data":[{"id":1,"name":"Tomato Soup","createdAt":"2023-12-28 14:33:19","updatedAt":"2024-01-02 17:15:35","createdBy":"Alice M","reviewsCount":3,"favoritesCount":1},{"id":2,"name":"Potato Salad","createdAt":"2023-12-28 14:33:19","updatedAt":"2024-01-02 17:15:56","createdBy":"Bob T","reviewsCount":0,"favoritesCount":1},{"id":3,"name":"Onion Pie","createdAt":"2023-12-28 14:33:19","updatedAt":"2024-01-02 17:16:10","createdBy":"Charlie C","reviewsCount":0,"favoritesCount":1}],"message":"Recipes fetched successfully"};
+const mockRecipeDetails2 = {"succes":false,"message":"Recipe not found"};
+// mock data
+const mockRecipeDetails = {
+  "success": true,
+  "data": {
+    "id": 1,
+    "name": "Tomato Soup",
+    "createdAt": "2023-12-28 14:33:19",
+    "updatedAt": "2024-01-02 17:15:35",
+    "createdBy": "Alice M",
+    "stepInstruction": "Step-by-step instructions for Tomato Soup.",
+    "cookingTime": 30,
+    "ingredients": [
+      {"name": "Tomato", "quantity": "2", "unit": "Cup"},
+      {"name": "Potato", "quantity": "1", "unit": "Cup"},
+      {"name": "Onion", "quantity": "0.5", "unit": "Cup"}
+    ]
+  },
+  "message": "Recipe fetched by ID successfully"
+};
+
+const mockReviews = {"success":true,"data":[{"id":1,"recipeName":"Tomato Soup","userName":"Alice M","comment":"Great taste!","rating":"4.50","location":"London, UK","createdAt":"2023-12-28 14:33:19"},{"id":2,"recipeName":"Tomato Soup","userName":"Bob T","comment":"Loved it, but a bit salty.","rating":"4.00","location":"Paris, France","createdAt":"2023-12-28 14:33:19"},{"id":3,"recipeName":"Tomato Soup","userName":"Charlie C","comment":"Perfect for dinner.","rating":"5.00","location":"New York, USA","createdAt":"2023-12-28 14:33:19"}],"message":"Reviews fetched successfully"}
 
 // Default Option
 const fetchWithConfig = (url, options = {}) => {
@@ -75,13 +101,31 @@ const ApiService = {
 
   /* Recipe */
   async fetchRecipes() {
+    if (useMockData) {
+      return new Promise(resolve => {
+        setTimeout(() => resolve(mockRecipesList.data), 500); 
+      });
+    } else {
       const response = await fetchWithConfig(`${API_BASE_URL}/recipes`);
       return handleResponse(response);
+    }
   },
 
   async fetchRecipe(recipeId) {
+    if (useMockData) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          if (recipeId === 1) {
+            resolve(mockRecipeDetails.data);
+          } else {
+            resolve(mockRecipeDetails2.data);
+          }
+        }, 500);
+      });
+    } else {
       const response = await fetchWithConfig(`${API_BASE_URL}/recipes/${recipeId}`);
       return handleResponse(response);
+    }
   },
 
   async fetchRecipeByUser() {
@@ -179,8 +223,17 @@ const ApiService = {
   },
 
   async fetchReviewsByRecipe(recipeId, page) {
+    if (useMockData) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          const reviews = mockReviews.filter(review => review.recipeName === recipeId);
+          resolve(reviews);
+        }, 500);
+      });
+    } else {
     const response = await fetchWithConfig (`${API_BASE_URL}/recipes/${recipeId}/reviews?page=${page}`);
     return handleResponse(response);
+    }
   },
   
   async fetchReview(reviewId) {
@@ -258,6 +311,7 @@ const ApiService = {
   }
 
   // other APIs
+  
 };
 
 export default ApiService;

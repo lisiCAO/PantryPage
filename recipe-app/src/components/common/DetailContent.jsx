@@ -6,6 +6,7 @@ import ImageComponent from './../common/ImageComponent';
 import InstructionComponent from './../common/InstructionComponent';
 import DetailItemComponent from './../common/DetailItemComponent';
 import { camelCaseToWords } from './../../assets/util/util'; 
+import defaultImage from './../../assets/image/default.png';
 
 const DetailContent = ({ data, config }) => {
     const renderMetadata = () => (
@@ -20,8 +21,8 @@ const DetailContent = ({ data, config }) => {
             case config.title:
                 return <TitleComponent key={key} value={value} />;
             case config.image:
-                const imageUrl = value ? `http://localhost:8000${value}` : "http://localhost:8000/storage/img/default.png";
-                return <ImageComponent key={key} src={imageUrl} alt={data[config.title] || "Default"} />;
+                const imageUrl = value ? `http://localhost:8000${value}` : "https://via.placeholder.com/300x200";
+                return <ImageComponent key={key} src={imageUrl} onError={(e) => { e.target.onerror = null; e.target.src = defaultImage; }} alt={data[config.title] || "Default"} />;
             case config.instructions:
                 return <InstructionComponent key={key} value={value} />;
             default:
