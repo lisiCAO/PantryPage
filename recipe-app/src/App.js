@@ -7,6 +7,7 @@ import LoginModal from './components/modals/LoginModal';
 import Home from './views/Home';
 import AdminPanel from './views/AdminPanel';
 import UserProfile from './views/UserProfile';
+import Footer from './components/layout/Footer';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
             }}
           />
         )}
+        <Footer />
       </div>
   );
 }
