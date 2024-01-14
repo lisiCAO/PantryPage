@@ -1,4 +1,3 @@
-
 ### Laravel Logging Configuration Guide
 
 This guide provides instructions for configuring the logging system in a Laravel project. Follow these steps to set up and customize logging as per your project's requirements.
