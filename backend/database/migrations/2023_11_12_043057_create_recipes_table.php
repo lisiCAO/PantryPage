@@ -21,7 +21,7 @@ class CreateRecipesTable extends Migration
             $table->string('recipe_image_path', 255)->nullable();
             $table->timestamps();
 
-            // 添加外键约束
+            // Foreign key
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
         });
     }

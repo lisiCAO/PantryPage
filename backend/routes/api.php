@@ -23,6 +23,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 // Login
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/refresh-token', [AuthController::class, 'refreshToken'])->middleware('parse.jwt');
 
 Route::apiResource('recipes', RecipeController::class)->only(['index', 'show']);
 Route::apiResource('reviews', ReviewController::class)->only(['index', 'show']);

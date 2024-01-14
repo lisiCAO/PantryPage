@@ -20,7 +20,7 @@ export const UserProvider = ({ children }) => {
       } catch (error) {
           showMessage('error', 'Failed to log out');
       }
-  }, [showMessage]); // 包括 showMessage 如果它是会变化的依赖
+  }, [showMessage]); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() =>{
         const checkLoginStatus = async () => {
@@ -39,6 +39,27 @@ export const UserProvider = ({ children }) => {
         checkLoginStatus();
     }, [handleLogout]);
 
+    useEffect(() => {
+      const tokenRefreshInterval = 15 * 60 * 1000; // 15 minutes
+  
+      const intervalId = setInterval(async () => {
+          try {
+              const response = await ApiService.refreshToken();
+              // update the user context with the new token
+              setIsLoggedIn(true);
+              setUser(response);
+              if (response.message === 'Access denied') {
+                handleLogout();
+              }
+          } catch (error) {
+            setIsLoggedIn(false);
+            setUser(null);
+          }
+      }, tokenRefreshInterval);
+  
+      return () => clearInterval(intervalId); // cleanup
+  }, []);
+
   const handleLogin = async (email, password) => {
     try {
       const response = await ApiService.login({ email, password });
@@ -54,20 +75,6 @@ export const UserProvider = ({ children }) => {
       setUser(null); 
     }
   };
-  
-
-  // // logout
-  // const handleLogout = async () => {
-  //   try {
-  //     await ApiService.logout(); 
-  //     setIsLoggedIn(false);
-  //     setUser(null);
-  //     showMessage('success', 'Logged out successfully');
-  //     navigateTo('home');
-  //   } catch (error) {
-  //     showMessage('error', 'Failed to log out');
-  //   }
-  // };
   
   const navigateTo = (page) => {
     setCurrentPage(page);

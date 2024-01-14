@@ -20,7 +20,6 @@ const Home = () => {
             try {
                 const recipesData = await ApiService.fetchRecipes();
                 if (!Array.isArray(recipesData)) {
-                    console.error('Unable to fetch recipes.');
                     return;
                 }
     
@@ -40,7 +39,6 @@ const Home = () => {
                 }
                 setRecipes(updatedRecipes);
             } catch (error) {
-                console.error('Error fetching recipes and favorites:', error);
                 setRecipes([]);
             }
         };
@@ -57,10 +55,9 @@ const Home = () => {
             // update selected recipe's favorite status
             const updatedRecipe = { ...data, isFavorited: recipe.isFavorited };
             setSelectedRecipe(updatedRecipe);
-            console.log(updatedRecipe);
         })
         .catch(error => {
-            console.error(error);
+            console.error('Error fetching recipe', error);
             setSelectedRecipe(null);
         });
     }

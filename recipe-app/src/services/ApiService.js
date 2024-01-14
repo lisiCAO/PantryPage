@@ -226,7 +226,7 @@ const ApiService = {
     if (useMockData) {
       return new Promise(resolve => {
         setTimeout(() => {
-          const reviews = mockReviews.filter(review => review.recipeName === recipeId);
+          const reviews = mockReviews.data.filter(review => review.recipeName === recipeId);
           resolve(reviews);
         }, 500);
       });
@@ -301,7 +301,12 @@ const ApiService = {
       const response = await fetchWithConfig(`${API_BASE_URL}/user`);
       return handleResponse(response);
   },
-
+  async refreshToken() {
+    const response = await fetchWithConfig('/api/refresh-token', {
+        method: 'POST',
+    });
+    return handleResponse(response);
+},
   // logout user
   async logout() {
       const response = await fetchWithConfig(`${API_BASE_URL}/logout`, {
@@ -309,7 +314,6 @@ const ApiService = {
       });
       return handleResponse(response);
   }
-
   // other APIs
   
 };
