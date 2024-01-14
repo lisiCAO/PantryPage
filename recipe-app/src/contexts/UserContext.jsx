@@ -8,6 +8,7 @@ export const UserProvider = ({ children }) => {
     const [ user, setUser ] =useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false); // show/hide login modal
+    const [showCreateAccount, setShowCreateAccount] = useState(false); // show/hide create account modal  
     const { showMessage } = useContext(MessageContext);          // save the message context
     const [currentPage, setCurrentPage] = useState('home');
     const handleLogout = useCallback(async () => {
@@ -69,19 +70,23 @@ export const UserProvider = ({ children }) => {
         setShowLoginModal(false);   
         setUser(response.user);        
       }, 2000);
-  
     } catch (error) {
       showMessage('error', 'Failed to login');
       setUser(null); 
     }
   };
+
+  const handleOpenCreateAccount = () => {
+    setShowLoginModal(false);
+    setShowCreateAccount(true);
+};
   
   const navigateTo = (page) => {
     setCurrentPage(page);
   };
 
     return (
-      <UserContext.Provider value={{ currentPage, user, isLoggedIn, showLoginModal, setUser, navigateTo, setShowLoginModal, handleLogin, handleLogout }}>
+      <UserContext.Provider value={{ currentPage, user, isLoggedIn, showLoginModal, showCreateAccount, setUser, navigateTo, setShowLoginModal, handleLogin, handleLogout, handleOpenCreateAccount }}>
           {children}
       </UserContext.Provider>
   );

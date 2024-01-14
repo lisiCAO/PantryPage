@@ -8,11 +8,13 @@ import Home from './views/Home';
 import AdminPanel from './views/AdminPanel';
 import UserProfile from './views/UserProfile';
 import Footer from './components/layout/Footer';
+import CreateUserModal from './components/modals/users/CreateUserModal';
 
 function App() {
 
-  const { currentPage, navigateTo, user, isLoggedIn, showLoginModal, setShowLoginModal, handleLogin, handleLogout } = useContext(UserContext);
+  const { currentPage, navigateTo, user, isLoggedIn, showLoginModal, showCreateAccount,setshowCreateAccount, setShowLoginModal, handleLogin, handleLogout, handleOpenCreateAccount, setshowCreateAccount } = useContext(UserContext);
   const { hideMessage } = useContext(MessageContext);
+  const { handleCreate } = useContext(UserContext);
   return (
       <div> 
         {/* render based on contion */}
@@ -34,9 +36,20 @@ function App() {
             onClose={() => {
               setShowLoginModal(false);
               hideMessage(); 
-            }}
+            } }
+            onOpenCreateAccount={handleOpenCreateAccount}
           />
         )}
+         {showCreateAccount &&          
+         <CreateUserModal 
+                    isOpen={showCreateAccount} 
+                    onClose={() => {                        
+                        setshowCreateAccount(false);
+                        hideMessage();
+                    }} 
+                    onCreate={handleCreate}
+                    user={user}
+                />}
         <Footer />
       </div>
   );

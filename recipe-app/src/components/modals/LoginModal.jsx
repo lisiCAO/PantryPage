@@ -6,7 +6,7 @@ import Message from './../common/Message';
 import { MessageContext } from './../../contexts/MessageContext';
 import './LoginModal.scss';
 
-const LoginModal = ({ onLogin, onClose }) => {
+const LoginModal = ({ onLogin, onClose, onOpenCreateAccount }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { message } = useContext(MessageContext);
@@ -16,6 +16,14 @@ const LoginModal = ({ onLogin, onClose }) => {
             <Modal isOpen={true} onClose={onClose}>
                 <div className="login-modal__content">
                     <h2 className="login-modal__title">Login</h2>
+                    {/* sign up link */}
+                    <p className="login-modal__signup-link">
+                        Don't have an account? 
+                        <a href="#" onClick={(e) => {
+                            e.preventDefault();
+                            onOpenCreateAccount();
+                        }}>Sign up</a>
+                    </p>
                     <FormInput 
                         className="login-modal__input"
                         name="email" 
@@ -38,6 +46,7 @@ const LoginModal = ({ onLogin, onClose }) => {
                         onClick={() => onLogin(email, password)}>
                         Sign In
                     </Button>
+                    
                 </div>
             </Modal>
         </div>
