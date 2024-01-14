@@ -1,3 +1,4 @@
+import {mockReviews} from './mockReviews';
 // Path context: src/services/ApiService.js
 const API_BASE_URL = process.env.REACT_APP_API_URL;
 const useMockData = process.env.REACT_APP_USE_MOCK_DATA === 'true';
@@ -25,7 +26,6 @@ const mockRecipeDetails = {
   "message": "Recipe fetched by ID successfully"
 };
 
-const mockReviews = {"success":true,"data":[{"id":1,"recipeName":"Tomato Soup","userName":"Alice M","comment":"Great taste!","rating":"4.50","location":"London, UK","createdAt":"2023-12-28 14:33:19"},{"id":2,"recipeName":"Tomato Soup","userName":"Bob T","comment":"Loved it, but a bit salty.","rating":"4.00","location":"Paris, France","createdAt":"2023-12-28 14:33:19"},{"id":3,"recipeName":"Tomato Soup","userName":"Charlie C","comment":"Perfect for dinner.","rating":"5.00","location":"New York, USA","createdAt":"2023-12-28 14:33:19"}],"message":"Reviews fetched successfully"}
 
 // Default Option
 const fetchWithConfig = (url, options = {}) => {
@@ -226,10 +226,11 @@ const ApiService = {
     if (useMockData) {
       return new Promise(resolve => {
         setTimeout(() => {
-          const reviews = mockReviews.data.filter(review => review.recipeName === recipeId);
-          resolve(reviews);
+            const pageKey = `page${page}`;
+            const reviews = mockReviews[pageKey] || [];
+            resolve(reviews);
         }, 500);
-      });
+    });
     } else {
     const response = await fetchWithConfig (`${API_BASE_URL}/recipes/${recipeId}/reviews?page=${page}`);
     return handleResponse(response);

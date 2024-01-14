@@ -124,7 +124,7 @@ class ReviewController extends Controller
     public function showByRecipe(string $recipeId)
     {
         try {
-            $reviews = Review::where('recipe_id', $recipeId)->paginate(10);
+            $reviews = Review::where('recipe_id', $recipeId)->paginate(3);
             return $this->sendResponse(ReviewResource::collection($reviews), 'Reviews fetched successfully');
         } catch (\Exception $e) {
             Log::error('Error fetching reviews: ' . $e->getMessage());
