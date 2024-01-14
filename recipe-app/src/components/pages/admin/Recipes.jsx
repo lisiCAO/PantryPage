@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Button from '../../common/Button';
-import Table from '../../layout/Table';
-import SearchBar from '../../common/Searchbar';
-import CreateRecipeModal from '../../modals/recipes/CreateRecipeModal';
-import EditRecipeModal from '../../modals/recipes/EditReipeModal';
-import RecipeDetailsModal from '../../modals/recipes/RecipeDetailsModal';
-import ConfirmModal from '../../modals/ConfirmModal';
-import ApiService from '../../../services/ApiService';
-import { MessageContext } from '../../common/MessageContext';
+import Button from './../../common/Button';
+import Table from './../../layout/Table';
+import SearchBar from './../../common/Searchbar';
+import CreateRecipeModal from './../../modals/recipes/CreateRecipeModal';
+import EditRecipeModal from './../../modals/recipes/EditReipeModal';
+import RecipeDetailsModal from './../../modals/recipes/RecipeDetailsModal';
+import ConfirmModal from './../../modals/ConfirmModal';
+import ApiService from './../../../services/ApiService';
+import { MessageContext } from './../../../contexts/MessageContext';
 import './Recipes.scss';
 
 /** 
@@ -23,53 +23,52 @@ import './Recipes.scss';
  */
 const Recipes = () => {
 
-    const [recipes, setRecipes] = useState([]); // recipes list
-    const [selectedRecipe, setSelectedRecipe] = useState(null); // selected recipe
-    const [editingRecipe, setEditingRecipe] = useState(null); // editing recipe
-    const [recipeToDelete, setRecipeToDelete] = useState(null); // recipe to delete
+    const [recipes, setRecipes] = useState([]);                     // recipes list
+    const [selectedRecipe, setSelectedRecipe] = useState(null);     // selected recipe
+    const [editingRecipe, setEditingRecipe] = useState(null);       // editing recipe
+    const [recipeToDelete, setRecipeToDelete] = useState(null);     // recipe to delete
 
-    const [searchTerm, setSearchTerm] = useState(''); // search term
+    const [searchTerm, setSearchTerm] = useState('');               // search term
 
-    const [showCreateModal, setShowCreateModal] = useState(false); // show/hide create modal
-    const [showDetailsModal, setShowDetailsModal] = useState(false); // show/hide details modal
-    const [showConfirmModal, setShowConfirmModal] = useState(false); 
+    const [showCreateModal, setShowCreateModal] = useState(false);  // show/hide create modal
+    const [showDetailsModal, setShowDetailsModal] = useState(false);// show/hide details modal
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
 
 
-    const { showMessage, hideMessage } = useContext(MessageContext); // Show/hide message
+    const { showMessage, hideMessage } = useContext(MessageContext);// Show/hide message
 
     // load initial data
     useEffect(() => {
         ApiService.fetchRecipes()
-        .then(response => {
-            if (Array.isArray(response)) {
-                setRecipes(response);
-            }
-            else {
-                console.error('Unable to fetch recipes.');
-                return [];
-            }
-        })
-        .catch(error => {
-            console.error(error);
-            // showMessage('error', 'Unable to fetch recipes.');
-            setRecipes([]);
-        });
+            .then(response => {
+                if (Array.isArray(response)) {
+                    setRecipes(response);
+                }
+                else {
+                    console.error('Unable to fetch recipes.');
+                    return [];
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                setRecipes([]);
+            });
     }, []);
 
     const handleCreate = async (newRecipe) => { // async/await
-            const addedRecipe = await ApiService.createRecipe(newRecipe);
-            setRecipes([...recipes, addedRecipe]);
-            showMessage('success', 'Recipe created successfully');
+        const addedRecipe = await ApiService.createRecipe(newRecipe);
+        setRecipes([...recipes, addedRecipe]);
+        showMessage('success', 'Recipe created successfully');
     }
 
     const handleViewDetails = (recipe) => {
         const recipeId = recipe.id;
-            ApiService.fetchRecipe(recipeId) 
-              .then(data => {
+        ApiService.fetchRecipe(recipeId)
+            .then(data => {
                 setSelectedRecipe(data);
                 setShowDetailsModal(true);
-              })
-              .catch(error => {console.error(error);setEditingRecipe(null);}) // Reset the editing state to close the modal 
+            })
+            .catch(error => { console.error(error); setEditingRecipe(null); })
     };
 
     const handleEditRecipe = (recipe) => {
@@ -79,12 +78,12 @@ const Recipes = () => {
 
     const saveEditedRecipe = async (updatedRecipeData) => {
         const updatedRecipe = await ApiService.updateRecipe(editingRecipe.id, updatedRecipeData);
-        setRecipes(recipes.map(recipe => 
+        setRecipes(recipes.map(recipe =>
             recipe.id === updatedRecipe.id ? updatedRecipe : recipe
         ));
         showMessage('success', 'Recipe updated successfully');
     };
-    
+
     const confirmDelete = (recipe) => {
         setRecipeToDelete(recipe);
         setShowConfirmModal(true);
@@ -113,7 +112,7 @@ const Recipes = () => {
     // Filter or sort the recipes list
     const filteredRecipes = recipes.filter(recipe =>
         recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
-    )|| [];
+    ) || [];
 
     // Table columns
     const columns = [
@@ -122,34 +121,35 @@ const Recipes = () => {
         { header: 'Updated At', cell: (row) => row.updatedAt },
         { header: 'Created By', cell: (row) => row.createdBy },
     ];
-    
+
     return (
         <div>
             <div className="top-bar">
-                <Button className="btn-create"  onClick={() => setShowCreateModal(true)}>Add New</Button>
+                <Button className="button--add" onClick={() => setShowCreateModal(true)}>Add New</Button>
                 <SearchBar value={searchTerm} onChange={handleSearch} />
             </div>
             {/* <Message message = {message}/> */}
-            <Table 
-                columns={columns} 
-                data={filteredRecipes} 
-                onViewDetails={handleViewDetails} 
+            <Table
+                columns={columns}
+                data={filteredRecipes}
+                onViewDetails={handleViewDetails}
                 onDelete={confirmDelete}
             />
             {showCreateModal && (
-                <CreateRecipeModal 
-                    isOpen={showCreateModal} 
-                    onClose={() => {            
+                <CreateRecipeModal
+                    isOpen={showCreateModal}
+                    onClose={() => {
                         setShowCreateModal(false);
-                        hideMessage();}
-                    } 
+                        hideMessage();
+                    }
+                    }
                     onCreate={handleCreate}
                 />
             )}
             {showDetailsModal && (
-                <RecipeDetailsModal 
-                    isOpen={showDetailsModal} 
-                    onClose={() => setShowDetailsModal(false)} 
+                <RecipeDetailsModal
+                    isOpen={showDetailsModal}
+                    onClose={() => setShowDetailsModal(false)}
                     recipe={selectedRecipe}
                     onEdit={handleEditRecipe}
                 />
@@ -158,22 +158,21 @@ const Recipes = () => {
                 <EditRecipeModal
                     isOpen={editingRecipe}
                     onClose={() => {
-                            setEditingRecipe(null); 
-                            setShowDetailsModal(false); 
-                            hideMessage();
-                            }}
+                        setEditingRecipe(null);
+                        setShowDetailsModal(false);
+                        hideMessage();
+                    }}
                     onEdit={saveEditedRecipe}
                     recipeData={editingRecipe}
-                /> 
+                />
             )}
-            <ConfirmModal 
+            <ConfirmModal
                 isOpen={showConfirmModal}
                 title="Confirm Delete"
                 message="Are you sure you want to delete this recipe?"
                 onConfirm={handleDeleteConfirmed}
                 onCancel={handleCancelDelete}
             />
-            
         </div>
     );
 };

@@ -1,0 +1,78 @@
+// media
+@use "sass:math";
+@mixin respond-to($media) {
+  @if $media == 'phone' {
+    @media (max-width: 600px) { @content; }
+  } @else if $media == 'tablet' {
+    @media (max-width: 900px) { @content; }
+  } @else if $media == 'desktop' {
+    @media (max-width: 1200px) { @content; }
+  }
+}
+// button
+@mixin button-style($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $spacing-small $spacing-medium;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}
+// text
+@mixin text-style($font-size, $color: $font-color) {
+  font-size: $font-size;
+  color: $color;
+}
+
+@mixin container-style($padding: $spacing-medium) {
+  padding: $padding;
+  margin: auto;
+  max-width: 1200px;
+}
+// layout
+@mixin grid-layout($columns: 3, $gap: $spacing-medium) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// background-color, color, border-color
+@mixin adjust-color($background, $border-lighten-amount: 0) {
+  background-color: $background;
+  color: if(is-light($background), $font-color-dark, $font-color-light); // 自动决定字体颜色
+  border-color: lighten($background, $border-lighten-amount);
+}
+
+
+// Function to determine if the color is light
+@function is-light($color) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+  $brightness: math.div(($red * 299) + ($green * 587) + ($blue * 114), 1000);
+  @return $brightness > 128; // 128 is the midpoint
+}
+
+// Modal
+@mixin modal-style {
+  background: white;
+  padding: $spacing-medium;
+  border-radius: $border-radius;
+  width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+// hover and focus
+@mixin hover-focus($color: $primary-color, $transform: translateY(-2px)) {
+  &:hover, &:focus {
+    background-color: $color;
+    transform: $transform;
+  }
+}

@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { MessageProvider } from './components/common/MessageContext';
-import { UserProvider } from './components/common/UserContext';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { MessageProvider } from "./contexts/MessageContext";
+import { UserProvider } from "./contexts/UserContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <MessageProvider>

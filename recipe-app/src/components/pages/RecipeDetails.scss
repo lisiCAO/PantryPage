@@ -1,15 +1,61 @@
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 .recipe-detail-container {
-    .detail-item {
-      margin-bottom: 20px;
-     
+    @include container-style;
+    width: 90%;
+    max-width: $max-container-width;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .detail-content {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: $spacing-unit;
+
+        &__title,
+        &__image-container,
+        &__metadata {
+            grid-column: 1 / -1;
+        }
+
+        &__title {
+            @include text-style($font-size-large);
+            margin-bottom: $spacing-small;
+        }
+
+        &__image {
+            width: 70%;
+            height: auto;
+            margin-bottom: $spacing-unit;
+            border-radius: $border-radius-large;
+        }
+
+        &__instruction,
+        &__ingredients {
+            @include text-style($font-size-normal);
+            margin-bottom: $spacing-unit;
+        }
     }
-  
+
     .favorite-button {
-      margin-bottom: 20px;
+        @include button-style($primary-color, $font-color-light);
+        margin: $spacing-medium 0;
     }
-  
-    .message {
-      margin-bottom: 20px;
+
+    .reviews-container {
+        margin-top: $spacing-large;
     }
-  }
-  
+
+    @include respond-to("phone") {
+        .detail-content {
+            grid-template-columns: 1fr;
+        }
+
+        .detail-content__image {
+            max-width: 100%;
+        }
+    }
+}

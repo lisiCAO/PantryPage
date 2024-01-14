@@ -1,90 +1,97 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import RecipeList from './../components/pages/regular/recipes/RecipeList';
 import RecipeDetails from './../components/pages/RecipeDetails';
 import SearchBar from './../components/common/Searchbar';
 import ApiService from './../services/ApiService';
-import { UserContext } from './../components/common/UserContext';
-import { MessageContext } from './../components/common/MessageContext';
+import { UserContext } from './../contexts/UserContext';
+import { MessageContext } from './../contexts/MessageContext';
 import './Home.scss';
 
 const Home = () => {
     const [recipes, setRecipes] = useState([]);
     const [selectedRecipe, setSelectedRecipe] = useState(null);
-    const [searchTerm, setSearchTerm] = useState(''); // search term
+    const [searchTerm, setSearchTerm] = useState('');
     const { isLoggedIn, setShowLoginModal } = useContext(UserContext);
     const { showMessage, hideMessage } = useContext(MessageContext);
-    
+    const [refreshFavorites, setRefreshFavorites] = useState(false);
+
     useEffect(() => {
-        ApiService.fetchRecipes()
-        .then(response => {
-            if (Array.isArray(response)) {
-                setRecipes(response);
-                console.log(response);
+        const fetchRecipesAndFavorites = async () => {
+            try {
+                const recipesData = await ApiService.fetchRecipes();
+                if (!Array.isArray(recipesData)) {
+                    return;
+                }
+
+                let updatedRecipes = recipesData.map(recipe => ({
+                    ...recipe,
+                    isFavorited: false,
+                }));
+
+                if (isLoggedIn) {
+                    const userFavorites = await ApiService.fetchFavoriteRecipeByUser();
+                    const userFavoritesIds = new Set(userFavorites.map(favorite => favorite.recipeId));
+                    updatedRecipes = updatedRecipes.map(recipe => ({
+                        ...recipe,
+                        isFavorited: userFavoritesIds.has(recipe.id),
+                    }));
+                }
+                setRecipes(updatedRecipes);
+            } catch (error) {
+                setRecipes([]);
             }
-            else {
-                console.error('Unable to fetch recipes.');
-                return [];
-            }
-        })
-        .catch(error => {
-            console.error(error);
-            setRecipes([]);
-        });
-    }, []);
+        };
+
+        fetchRecipesAndFavorites();
+    }, [isLoggedIn, refreshFavorites]);
 
     const handleViewDetails = (recipe) => {
         const recipeId = recipe.id;
-        ApiService.fetchRecipe(recipeId) 
-        .then(data => {
-            setSelectedRecipe(data);
-        })
-        .catch(error => {
-            console.error(error);
-            setSelectedRecipe(null);
-        });
+        ApiService.fetchRecipe(recipeId)
+            .then(data => {
+                const updatedRecipe = { ...data, isFavorited: recipe.isFavorited };
+                setSelectedRecipe(updatedRecipe);
+            })
+            .catch(error => {
+                console.error('Error fetching recipe', error);
+                setSelectedRecipe(null);
+            });
     }
 
     const handleBackToList = () => {
-        setSelectedRecipe(null); // Clear the selected recipe
-        hideMessage(); // Clear any messages
+        setSelectedRecipe(null);
+        hideMessage();
     };
 
-    const handleToggleFavorite = async (recipeId) => {
-        try {
-            if (!isLoggedIn) {
-                showMessage('error', 'Please log in to favorite recipes.');
-                setShowLoginModal(true);
-                return;
-            }
+    const handleToggleFavorite = useCallback(async (recipeId) => {
+        if (!isLoggedIn) {
+            showMessage('error', 'Please log in to favorite recipes.');
+            setShowLoginModal(true);
+            return;
+        }
+        const recipeToUpdate = recipes.find(recipe => recipe.id === recipeId);
+        if (!recipeToUpdate) {
+            console.error('Recipe not found');
+            return;
+        }
 
-            // fetch the recipe to get the current favorite status
-            const isCurrentlyFavorited = recipes.find(recipe => recipe.id === recipeId).isFavorited;
-    
-            let updatedStatus;
-            if (isCurrentlyFavorited) {
-                // 如果当前已收藏，发送 DELETE 请求移除收藏
-                await ApiService.deleteFavoriteRecipeByUser(recipeId);
-                updatedStatus = false; // 设置为未收藏状态
-            } else {
-                // 如果当前未收藏，发送 POST 请求添加收藏
-                await ApiService.addFavoriteRecipeByUser(recipeId);
-                updatedStatus = true; // 设置为已收藏状态
-            }
-    
-            // 更新食谱列表中的收藏状态
-            setRecipes(recipes.map(recipe => 
-                recipe.id === recipeId ? { ...recipe, isFavorited: updatedStatus } : recipe
-            ));
-    
-            // 如果选中的食谱是当前操作的食谱，更新其收藏状态
+        try {
+
+            const apiFunction = recipeToUpdate.isFavorited ? ApiService.deleteFavoriteRecipeByUser : ApiService.addFavoriteRecipeByUser;
+            await apiFunction(recipeId);
+            const updatedRecipes = recipes.map(recipe =>
+                recipe.id === recipeId ? { ...recipe, isFavorited: !recipe.isFavorited } : recipe
+            );
+
+            setRecipes(updatedRecipes);
             if (selectedRecipe && selectedRecipe.id === recipeId) {
-                setSelectedRecipe({ ...selectedRecipe, isFavorited: updatedStatus });
+                setSelectedRecipe({ ...selectedRecipe, isFavorited: !selectedRecipe.isFavorited });
             }
         } catch (error) {
             console.error('Error toggling favorite status', error);
-        }
-    };
-    
+        };
+        setRefreshFavorites(prev => !prev);
+    }, [recipes, selectedRecipe, isLoggedIn, showMessage, setShowLoginModal, setRefreshFavorites]);
 
     const handleSearch = (term) => {
         setSearchTerm(term);
@@ -94,12 +101,11 @@ const Home = () => {
     // Filter or sort the recipes list
     const filteredRecipes = recipes.filter(recipe =>
         recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
-    )|| [];
+    ) || [];
 
     return (
         <div className="home-page">
             <main className="welcome-section">
-                <h1>Welcome to Our Application</h1>
                 {selectedRecipe ? (
                     <>
                         <button onClick={handleBackToList}>Back to List</button>
@@ -113,7 +119,8 @@ const Home = () => {
                 )}
             </main>
         </div>
-    )};
+    )
+};
 
 export default Home;
 // Path: recipe-app/src/views/Home.jsx

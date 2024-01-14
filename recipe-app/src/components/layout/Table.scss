@@ -1,44 +1,33 @@
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
+
 .table {
     width: 100%;
     border-collapse: collapse;
 
-    th, td {
+    th,
+    td {
+        padding: $spacing-small;
+        border: 1px solid $primary-color;
         text-align: left;
-        padding: 8px;
-        border-bottom: 1px solid #ddd;
     }
 
     th {
-        background-color: #f4f4f4;
+        background-color: lighten($primary-color, 20%);
     }
 
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
+    tbody tr:nth-child(odd) {
+        background-color: $background-color-light;
     }
 
-    tr:hover {
-        background-color: #f1f1f1;
-    }
-
-    .btn-danger {
-        background-color: #dc3545; /* 明显的红色背景 */
-        color: white;
-        border: 1px solid #dc3545;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-
-        &:hover {
-            background-color: #c82333; /* 悬停时更深的红色 */
-            border-color: #bd2130;
+    .button {
+        &--view,
+        &--delete {
+            margin: 0 $spacing-small $spacing-small 0;
         }
 
-        &:active {
-            background-color: #bd2130; /* 点击时的颜色 */
-            border-color: #b21f2d;
-        }
-
-        &:focus {
-            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5); /* 焦点时的边框阴影 */
+        &:last-child {
+            margin-right: 0;
         }
     }
-
 }

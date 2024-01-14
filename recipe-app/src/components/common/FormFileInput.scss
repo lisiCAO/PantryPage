@@ -1,13 +1,19 @@
-.form-group {
-    margin-bottom: 15px;
-  
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-  
-    input[type="file"] {
-      width: 100%;
-    }
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
+
+.form-file-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-medium;
+
+  &__label {
+    margin-bottom: $spacing-small;
+    font-weight: bold;
   }
-  
+
+  &__input {
+    padding: $spacing-small;
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+  }
+}

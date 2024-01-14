@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react'; 
-import { UserContext } from '../../../components/common/UserContext';
 import UserDetailsView from './profile/UserDetailsView';
 import UserDetailsEdit from './profile/UserDetailsEdit';
+import { MessageContext } from './../../../contexts/MessageContext';
+import { UserContext } from './../../../contexts/UserContext';
 import ApiService from '../../../services/ApiService';
-import { MessageContext } from '../../common/MessageContext';
 import './UserDetails.scss'
 
 const UserDetails = () => {

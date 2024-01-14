@@ -1,42 +1,47 @@
-.modal-body {
-    padding: 20px;
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
-    form {
-        display: flex;
-        flex-direction: column;
+.form-modal {
+    .form-modal__content {
+        @include container-style;
+        background-color: $background-color-light;
+        padding: $spacing-medium;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        max-width: 600px;
 
-        .form-group {
-            margin-bottom: 15px;
+        @include respond-to("tablet") {
+            max-width: 100%;
+            padding: $spacing-small;
         }
 
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
+        .form-modal__title {
+            color: $primary-color;
+            margin-bottom: $spacing-medium;
+
+            @include respond-to("phone") {
+                font-size: $font-size-large;
+            }
         }
 
-        input[type="text"],
-        input[type="number"],
-        input[type="file"],
-        textarea {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
+        .form-modal__form {
+            margin-bottom: $spacing-small;
+
+            &__input {
+                @include respond-to("phone") {
+                    padding: $spacing-small;
+                }
+            }
         }
 
-        input[type="file"] {
-            border: none;
-        }
+        .form-modal__button {
+            @include button-style($primary-color, white);
+            width: 100%;
+            margin-top: $spacing-small;
 
-        textarea {
-            resize: vertical;
-            height: 100px;
-        }
-
-        .button {
-            align-self: center; // Centers the button in the form
+            @include respond-to("phone") {
+                font-size: $font-size-normal;
+            }
         }
     }
 }
-

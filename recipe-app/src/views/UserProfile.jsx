@@ -1,11 +1,11 @@
-import React , { useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import Sidebar from '../components/layout/Sidebar';
 import UserDetails from '../components/pages/regular/UserDetails';
 import UserRecipes from '../components/pages/regular/UserRecipes';
 import UserReviews from '../components/pages/regular/UserReviews';
 import UserFavorites from '../components/pages/regular/UserFavorites';
-import { UserContext } from '../components/common/UserContext';
-import "./UserProfile.scss";
+import { UserContext } from './../contexts/UserContext';
+import './UserProfile.scss';
 
 function UserProfile() {
     const [activeTab, setActiveTab] = useState('details');
@@ -28,7 +28,7 @@ function UserProfile() {
     return (
         <div className="user-profile">
             <div className="user-body">
-                <Sidebar setActiveTab={setActiveTab} category={user.category}/>
+                <Sidebar setActiveTab={setActiveTab} category={user.category} />
                 <div className="content">
                     {renderComponent()}
                 </div>

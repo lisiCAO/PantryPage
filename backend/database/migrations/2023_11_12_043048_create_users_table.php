@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('password', 255);
             $table->string('profile_image_path', 255)->nullable();
             $table->string('category', 50)->nullable();
-            $table->string('bio', 255)->nullable(); // 添加个人简介
-            $table->string('location', 100)->nullable(); // 添加地点
+            $table->string('bio', 255)->nullable(); 
+            $table->string('location', 100)->nullable(); 
             $table->timestamps();
         });
     }

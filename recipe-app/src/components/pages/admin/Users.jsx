@@ -7,69 +7,62 @@ import EditUserModal from '../../modals/users/EditUserModal';
 import UserDetailsModal from '../../modals/users/UserDetailsModal';
 import ConfirmModal from '../../modals/ConfirmModal';
 import ApiService from '../../../services/ApiService';
-import { MessageContext } from '../../common/MessageContext';
+import { MessageContext } from './../../../contexts/MessageContext';
 import './Users.scss';
 
 const Users = () => {
     const [users, setUsers] = useState([]);
-
     const [selectedUser, setSelectedUser] = useState(null);
     const [editingUser, setEditingUser] = useState(null);
-    const [userToDelete, setUserToDelete] = useState(null); 
+    const [userToDelete, setUserToDelete] = useState(null);
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [showDetailsModal, setShowDetailsModal] = useState(false);
-    const [showConfirmModal, setShowConfirmModal] = useState(false); 
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
-
     const { showMessage, hideMessage } = useContext(MessageContext);
 
-    // load initial data
     useEffect(() => {
         ApiService.fetchUsers()
-        .then(response => {
-            if (Array.isArray(response)) {
-                setUsers(response);
-            } else {
-                console.error('Unable to fetch Users.');
-                return [];
-            }
-        })
-        .catch(error => {
-            console.error(error);
-            // showMessage('error', 'Unable to fetch recipes.');
-            setUsers([]);
-        });
+            .then(response => {
+                if (Array.isArray(response)) {
+                    setUsers(response);
+                } else {
+                    console.error('Unable to fetch Users.');
+                    return [];
+                }
+            })
+            .catch(error => {
+                setUsers([]);
+            });
     }, []);
 
     const handleCreate = async (newUser) => {
         await ApiService.createUser(newUser)
-        .then(addedUser => {
-            setUsers([...users, addedUser]);
-            showMessage('success', 'User created successfully');
-        })
+            .then(addedUser => {
+                setUsers([...users, addedUser]);
+                showMessage('success', 'User created successfully');
+            })
     };
 
     const handleViewDetails = (user) => {
         const userId = user.id;
-            ApiService.fetchUser(userId) 
-              .then(data => {
+        ApiService.fetchUser(userId)
+            .then(data => {
                 setSelectedUser(data);
                 setShowDetailsModal(true);
-              })
-              .catch(error => {console.error(error); setEditingUser(null)});   
+            })
+            .catch(error => { console.error(error); setEditingUser(null) });
     };
 
     const handleEditUser = (user) => {
         setEditingUser(user);
         setShowDetailsModal(false);
-        // Open the edit modal here
     };
 
     const saveEditedUser = async (updatedUserData) => {
         await ApiService.updateUser(editingUser.id, updatedUserData)
             .then(updatedUser => {
-                // Update the Users list with the updated User
-                setUsers(users.map(user => 
+                setUsers(users.map(user =>
                     user.id === updatedUser.id ? updatedUser : user
                 ));
                 showMessage('success', 'User updated successfully');
@@ -95,10 +88,9 @@ const Users = () => {
         setUserToDelete(null);
         setShowConfirmModal(false);
     };
-    
+
     const handleSearch = (term) => {
         setSearchTerm(term);
-        // searchUsers(term); // searchUsers is a function that searches the users
     };
 
     // Table columns
@@ -108,7 +100,7 @@ const Users = () => {
         { header: 'Created At', cell: (row) => row.createdAt },
         { header: 'Category', cell: (row) => row.category },
     ];
-    
+
 
     // Filter the users based on the search term
     const filteredUsers = users.filter(user =>
@@ -118,29 +110,29 @@ const Users = () => {
     return (
         <div>
             <div className="top-bar">
-                <Button className="btn-create" onClick={() => setShowCreateModal(true)}>Add New</Button>
+                <Button className="button--add" onClick={() => setShowCreateModal(true)}>Add New</Button>
                 <SearchBar value={searchTerm} onChange={handleSearch} />
             </div>
-            <Table 
-                columns={columns} 
-                data={filteredUsers} 
-                onViewDetails={handleViewDetails} 
+            <Table
+                columns={columns}
+                data={filteredUsers}
+                onViewDetails={handleViewDetails}
                 onDelete={confirmDelete}
             />
             {showCreateModal && (
-                <CreateUserModal 
-                    isOpen={showCreateModal} 
-                    onClose={() => {                        
+                <CreateUserModal
+                    isOpen={showCreateModal}
+                    onClose={() => {
                         setShowCreateModal(false);
                         hideMessage();
-                    }} 
+                    }}
                     onCreate={handleCreate}
                 />
             )}
             {showDetailsModal && (
-                <UserDetailsModal 
-                    isOpen={showDetailsModal} 
-                    onClose={() => setShowDetailsModal(false)} 
+                <UserDetailsModal
+                    isOpen={showDetailsModal}
+                    onClose={() => setShowDetailsModal(false)}
                     user={selectedUser}
                     onEdit={handleEditUser}
                 />
@@ -149,14 +141,15 @@ const Users = () => {
                 <EditUserModal
                     isOpen={!!editingUser}
                     onClose={() => {
-                            setEditingUser(null); 
-                            setShowDetailsModal(false); 
-                            hideMessage();}}
+                        setEditingUser(null);
+                        setShowDetailsModal(false);
+                        hideMessage();
+                    }}
                     onEdit={saveEditedUser}
                     userData={editingUser}
-                /> 
+                />
             )}
-            <ConfirmModal 
+            <ConfirmModal
                 isOpen={showConfirmModal}
                 title="Confirm Delete"
                 message="Are you sure you want to delete this user?"
@@ -166,6 +159,5 @@ const Users = () => {
         </div>
     );
 };
-
 
 export default Users;

@@ -5,7 +5,7 @@ import RecipeDetailsModal from '../../modals/recipes/RecipeDetailsModal';
 import ConfirmModal from '../../modals/ConfirmModal';
 import ApiService from '../../../services/ApiService';
 
-function UserFavorites({}) {
+const UserFavorites = () => {
 
     const [favorites, setFavorites] = useState([]); // favorites list
     const [selectedFavorite, setSelectedFavorite] = useState(null); // selected Favorite

@@ -5,16 +5,17 @@ const FormFileInput = ({ name, label, onFileUpload }) => {
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         if (file) {
-            onFileUpload(file); // 当文件被选择时，调用 onFileUpload 函数
+            onFileUpload(file); // Pass the file to the parent component
         }
     };
     return (
-        <div className="form-group">
-            <label htmlFor={name}>{label}</label>
+        <div className="form-file-input">
+            <label htmlFor={name} className="form-file-input__label">{label}</label>
             <input
                 type="file"
                 name={name}
                 id={name}
+                className="form-file-input__input"
                 onChange={handleFileChange}
             />
         </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import StatisticsCard from '../../common/StatisticsCard';
-import ApiService from '../../../services/ApiService';
-const Dashboard = ({ onCardClick })=> {
+import StatisticsCard from './../../common/StatisticsCard';
+import ApiService from './../../../services/ApiService';
+const Dashboard = ({ onCardClick }) => {
     const [dashboardData, setDashboardData] = useState(null);
     const [error, setError] = useState(null);
 
@@ -21,15 +21,15 @@ const Dashboard = ({ onCardClick })=> {
     }
 
     if (!dashboardData) {
-        return <div>Loading...</div>; // 考虑使用更复杂的加载指示器
+        return <div>Loading...</div>; // TODO: Add spinner
     }
 
     return (
         <div className="dashboard">
             <StatisticsCard title="User Statistics" data={dashboardData.userStats} onClick={() => onCardClick('users')} />
             <StatisticsCard title="Recipe Statistics" data={dashboardData.recipeStats} onClick={() => onCardClick('recipes')} />
-            <StatisticsCard title="Ingredient Statistics" data={dashboardData.ingredientStats} onClick={() => onCardClick('ingredients')}/>
-            <StatisticsCard title="Review Statistics" data={dashboardData.reviewStats} onClick={() => onCardClick('reviews')}/>
+            <StatisticsCard title="Ingredient Statistics" data={dashboardData.ingredientStats} onClick={() => onCardClick('ingredients')} />
+            <StatisticsCard title="Review Statistics" data={dashboardData.reviewStats} onClick={() => onCardClick('reviews')} />
         </div>
     );
 };

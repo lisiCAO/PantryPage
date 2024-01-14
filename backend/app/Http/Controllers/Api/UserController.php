@@ -65,12 +65,9 @@ class UserController extends Controller
                 'password' => 'required|string|min:6',
                 'profile_image_path' => 'nullable|string',
             ]);
-            if($this->checkRole('admin')) {
-                $validatedData['category'] = $request->input('category');
-            } else {
+            if(empty($validatedData['category'])){
                 $validatedData['category'] = 'user';
             }
-            $validatedData['password'] = Hash::make($validatedData['password']);
             $user = User::create($validatedData);
             Log::info('User created successfully: ', ['id' => $user->user_id]);
 
@@ -163,6 +160,8 @@ class UserController extends Controller
                 'email' => 'required|string|email|max:100|unique:users,email,' .  $id . ',user_id',
                 'password' => 'nullable|string|min:6',
                 'profile_image_path' => 'nullable|string',
+                'bio' => 'nullable|string|max:500',
+                'location' => 'nullable|string|max:50',
                 'category' => 'nullable|string|max:50',
             ]);
             if (!empty($validatedData['password'])) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.scss'; // 假设你使用SCSS进行样式管理
+import './Button.scss'; // Import the Button.scss styles
 
 const Button = ({ children, onClick, className, disabled = false }) => {
   const buttonClass = `button ${className || ''}`.trim();

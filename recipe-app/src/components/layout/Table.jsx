@@ -22,8 +22,16 @@ const Table = ({ columns, data, onViewDetails, onDelete }) => {
                             <td key={colIndex}>{col.cell(row)}</td>
                         ))}
                         <td>
-                            <Button onClick={() => onViewDetails(row)} className="btn btn-primary">View</Button>
-                            <Button onClick={() => onDelete(row)} className="btn btn-danger">Delete</Button>
+                            <Button
+                                onClick={() => onViewDetails(row)}
+                                className="button--view">
+                                View
+                            </Button>
+                            <Button
+                                onClick={() => onDelete(row)}
+                                className="button--delete">
+                                Delete
+                            </Button>
                         </td>
                     </tr>
                 ))}

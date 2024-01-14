@@ -1,0 +1,109 @@
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
+
+.reviews {
+    max-width: $max-container-width;
+    width: 100%;
+    margin: auto;
+    padding: $spacing-large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $background-color-light;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    &__form {
+        width: 95%;
+    }
+
+    &__loader {
+        display: flex;
+        justify-content: center;
+        margin: $spacing-medium 0;
+        text-align: center;
+        color: $primary-color;
+        font-weight: bold;
+        font-size: $font-size-normal;
+
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+
+            &::after {
+                content: "";
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 2px solid $primary-color;
+                border-top-color: transparent;
+                animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
+    &__list {
+        margin-bottom: $spacing-medium;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.review {
+    width: 95%;
+    background-color: white;
+    padding: $spacing-small;
+    margin-bottom: $spacing-medium;
+    border-radius: $border-radius-small;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition:
+        box-shadow 0.3s,
+        transform 0.2s;
+
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+    }
+
+    &__rating {
+        color: $primary-color;
+        font-size: $font-size-large;
+        margin-bottom: $spacing-small;
+    }
+
+    &__content {
+        color: $font-color;
+        margin-bottom: $spacing-small;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: $font-size-small;
+        color: $text-color-light;
+        margin-top: $spacing-small;
+    }
+
+    &__user {
+        font-weight: bold;
+    }
+
+    &__date {
+        opacity: 0.8;
+    }
+}

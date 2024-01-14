@@ -1,24 +1,29 @@
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
+
 .sidebar {
-    background-color: #2c3e50; // Dark background for the sidebar
+    background-color: $primary-color;
     color: white;
-    width: 200px; // Fixed width for the sidebar
-    height: 100vh; // Full height
-    padding-top: 20px; // Space at the top
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2); // Adding a subtle shadow
+    width: 200px;
+    height: 100vh;
+    padding-top: $spacing-medium;
 
-    ul {
-        list-style-type: none; // Remove bullet points
-        padding: 0; // Remove default padding
+    &__menu {
+        list-style-type: none;
+        padding: 0;
 
-        li {
-            padding: 10px 15px; // Padding inside each tab
-            cursor: pointer; // Change mouse pointer to indicate clickability
-            border-left: 3px solid transparent; // Transparent border for a smooth transition on active state
-            transition: background-color 0.3s, border-left 0.3s; // Smooth transitions for hover and active states
+        &__item {
+            padding: $spacing-small $spacing-medium;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+            transition:
+                background-color 0.3s,
+                border-left 0.3s;
 
-            &:hover, &.active {
-                background-color: #34495e; // Slightly lighter color on hover
-                border-left-color: #f39c12; // Highlight color for the active tab
+            &:hover,
+            &--active {
+                background-color: lighten($primary-color, 10%);
+                border-left-color: $secondary-color;
             }
         }
     }

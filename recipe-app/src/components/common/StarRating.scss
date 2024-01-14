@@ -1,12 +1,24 @@
 // StarRating.scss
 .star-rating {
-    i {
-      color: #ffcc00; // Golden color for stars
-      margin-right: 4px;
-  
-      &:hover {
-        color: #ffdd55;
-      }
+  display: flex;
+  align-items: center;
+
+  &__star {
+    // Basic
+    color: gold; 
+    margin-right: 4px; 
+    cursor: pointer; 
+
+    &:hover {
+      transform: scale(1.1); 
     }
   }
-  
+
+  &__star--full {
+    color: gold; 
+  }
+
+  &__star--empty {
+    color: grey; 
+  }
+}

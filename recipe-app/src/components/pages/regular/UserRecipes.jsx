@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import RecipeList from './recipes/RecipeList';
-import Button from '../../common/Button';
-import SearchBar from '../../common/Searchbar';
-import CreateRecipeModal from '../../modals/recipes/CreateRecipeModal';
-import EditRecipeModal from '../../modals/recipes/EditReipeModal';
-import RecipeDetailsModal from '../../modals/recipes/RecipeDetailsModal';
-import ConfirmModal from '../../modals/ConfirmModal';
-import { MessageContext } from '../../common/MessageContext';
-import ApiService from '../../../services/ApiService';
+import Button from './../../common/Button';
+import SearchBar from './../../common/Searchbar';
+import CreateRecipeModal from './../../modals/recipes/CreateRecipeModal';
+import EditRecipeModal from './../../modals/recipes/EditReipeModal';
+import RecipeDetailsModal from './../../modals/recipes/RecipeDetailsModal';
+import ConfirmModal from './../../modals/ConfirmModal';
+import { MessageContext } from './../../../contexts/MessageContext';
+import ApiService from './../../../services/ApiService';
 
 import './UserRecipes.scss';
 

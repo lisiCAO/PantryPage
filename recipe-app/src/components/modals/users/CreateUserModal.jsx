@@ -1,16 +1,21 @@
 import React from 'react';
 import FormModal from '../FormModal.jsx';
 import userConfig from './userConfig.js';
-import './CreateUserModal.scss';
 
+const CreateUserModal = ({ isOpen, onClose, onCreate, user }) => {
 
-const CreateUserModal = ({ isOpen, onClose, onCreate }) => {
+    const filteredConfig = userConfig.filter(field => {
+        if (field.name === 'category') {
+            return user && user.category === 'admin'; // Only show category field to admin users
+        }
+        return true;
+    });
     return (
         <FormModal
             isOpen={isOpen}
             onClose={onClose}
             onSubmit={onCreate}
-            config={userConfig}
+            config={filteredConfig}
             mode="create"
         />
     );

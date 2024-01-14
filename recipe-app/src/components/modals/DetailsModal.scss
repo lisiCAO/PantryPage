@@ -1,35 +1,22 @@
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
-.modal-body {
-    padding: 20px;
+.details-modal {
+    @include modal-style;
     display: flex;
-    flex-direction: column;
 
-    .detail-item {
-        margin-bottom: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        strong {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        img {
-            max-width: 200px; // 设置图片的宽度
-            height: auto; // 设置图片的高度
-            border-radius: 4px;
-            margin-top: 10px;
-        }
-
-        p {
-            margin: 0;
-            padding: 0;
-            line-height: 1.5; // Enhances readability
+    .detail-content {
+        &__image {
+            width: 200px;
         }
     }
 
-    .edit-button {
-        align-self: flex-end; // Aligns the button to the right
+    .button {
+        margin: $spacing-small;
+        @include button-style($primary-color, white);
+
+        &--edit {
+            @include button-style($secondary-color, white);
+        }
     }
 }

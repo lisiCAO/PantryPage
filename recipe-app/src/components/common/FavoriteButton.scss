@@ -1,16 +1,16 @@
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
+
 .favorite-button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #ff6961; // #ff6961 is a light red color
+  color: $primary-color;
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  margin: 5px;
+  font-size: $font-size-large;
+  cursor: pointer;
 
-    &:hover {
-        transform: scale(1.1); // 稍微放大按钮
-        color: #ff4747; // 鼠标悬停时的颜色
-    }
-
-    &.favorited {
-        color: #ff4747;
-    }
+  &--favorited {
+    color: $error-color;
+  }
 }

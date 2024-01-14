@@ -1,4 +1,3 @@
-
 # Project Setup Guide with Docker
 
 This guide describes how to set up the project environment using Docker for both the frontend (React) and backend (Laravel) applications.

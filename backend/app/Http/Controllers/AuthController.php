@@ -64,4 +64,22 @@ class AuthController extends Controller
         ];
         return $this->sendResponse($result, 'Login successful');
     }
+    public function refreshToken(Request $request) {
+        try {
+            // check if token is valid with JWTAuth
+            $refreshToken = JWTAuth::getToken();
+            
+            $newToken = JWTAuth::refresh($refreshToken); // Refresh the token
+            // Create a cookie with a 60-minute expiration time
+            $cookie = cookie('jwt', $newToken, 60);
+            return $this->sendResponse(['token' => $newToken], 'Token refreshed')->withCookie($cookie);
+
+        } catch (TokenExpiredException $e) {
+            return $this->sendError('Token expired', [], 401);
+        } catch (TokenInvalidException $e) {
+            return $this->sendError('Invalid token', [], 401);
+        } catch (JWTException $e) {
+            return $this->sendError('Token absent', [], 401);
+        }
+    }
 }

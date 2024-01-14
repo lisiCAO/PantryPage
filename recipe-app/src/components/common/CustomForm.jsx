@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useContext } from 'react';
+import classNames from 'classnames';
 import Button from './Button';
 import FormInput from './FormInput';
 import FormTextArea from './FormTextArea';
@@ -6,10 +7,10 @@ import FormFileInput from './FormFileInput';
 import Select from './Select';
 import Message from './Message';
 import ApiService from '../../services/ApiService';
-import { MessageContext } from './MessageContext';
+import { MessageContext } from './../../contexts/MessageContext';
 import './CustomForm.scss';
 
-const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }) => {
+const CustomForm = ({ className, onSubmit, config, initialData, mode, onSubmissionSuccess }) => {
     const shouldShowPasswordCheckbox = useMemo(() => {
         return mode === 'edit' && config.some(field => field.type === 'password');
     }, [config, mode]);
@@ -25,9 +26,9 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
     const [formData, setFormData] = useState(defaultFormData);
     const [isPasswordChanging, setIsPasswordChanging] = useState(mode === 'create');
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const { message } =useContext(MessageContext);
+    const { message } = useContext(MessageContext);
     const { showMessage } = useContext(MessageContext);
-
+    const formClassNames = classNames('custom-form', className);
 
     // Set formData to initialData when in edit mode
     useEffect(() => {
@@ -42,17 +43,17 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
         }
     }, [config, defaultFormData, initialData, mode]);
 
-    
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
-    const handleFileUpload = async (file,fieldName) => {
+    const handleFileUpload = async (file, fieldName) => {
         const formData = new FormData();
         formData.append('file', file);
-        try{
+        try {
             const response = await ApiService.uploadFile(formData);
-            if(response){
+            if (response) {
                 setFormData(prevFormData => ({
                     ...prevFormData,
                     [fieldName]: response
@@ -63,7 +64,7 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
         } catch (error) {
             console.error('File upload error:', error);
         }
-        };
+    };
 
     const renderFormFields = (config, formData) => {
         return config.map((field) => {
@@ -79,13 +80,13 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
                 return null;
             }
 
-            if( field.type === 'password'){
-                if( mode === 'edit' && !isPasswordChanging){
+            if (field.type === 'password') {
+                if (mode === 'edit' && !isPasswordChanging) {
                     return null;
                 }
                 return (
                     <FormInput
-                        key={field.name} 
+                        key={field.name}
                         {...field}
                         name={field.name}
                         label={field.label}
@@ -99,7 +100,7 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
                 case 'text':
                     return (
                         <FormInput
-                            key={field.name} 
+                            key={field.name}
                             {...field}
                             name={field.name}
                             label={field.label}
@@ -110,7 +111,7 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
                 case 'number':
                     return (
                         <FormInput
-                            key={field.name} 
+                            key={field.name}
                             {...field}
                             name={field.name}
                             label={field.label}
@@ -121,7 +122,7 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
                 case 'textarea':
                     return (
                         <FormTextArea
-                            key={field.name} 
+                            key={field.name}
                             {...field}
                             name={field.name}
                             label={field.label}
@@ -132,7 +133,7 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
                 case 'file':
                     return (
                         <FormFileInput
-                            key={field.name} 
+                            key={field.name}
                             {...field}
                             name={field.name}
                             label={field.label}
@@ -143,7 +144,7 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
                 case 'email':
                     return (
                         <FormInput
-                            key={field.name} 
+                            key={field.name}
                             {...field}
                             name={field.name}
                             label={field.label}
@@ -154,12 +155,12 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
                 case 'select':
                     return (
                         <Select
-                        key={field.name}
-                        name={field.name}
-                        label={field.label}
-                        options={field.options}
-                        value={formData[field.name]}
-                        onChange={handleChange}
+                            key={field.name}
+                            name={field.name}
+                            label={field.label}
+                            options={field.options}
+                            value={formData[field.name]}
+                            onChange={handleChange}
                         />
                     );
 
@@ -189,9 +190,9 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={formClassNames} onSubmit={handleSubmit}>
             {shouldShowPasswordCheckbox && (
-                <label>
+                <label className="custom-form__checkbox-label">
                     Change Password:
                     <input
                         type="checkbox"
@@ -201,11 +202,12 @@ const CustomForm = ({ onSubmit, config, initialData, mode, onSubmissionSuccess }
                 </label>
             )}
             {renderFormFields(config, formData)}
-            <Message message={message} />
-            <Button type="submit" disabled={isSubmitting}>
+            <Message className="custom-form__message" message={message} />
+            <Button className="custom-form__submit-button" type="submit" disabled={isSubmitting}>
                 {mode === 'edit' ? 'Save' : 'Create'}
             </Button>
         </form>
+
     );
 };
 

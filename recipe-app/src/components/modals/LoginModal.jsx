@@ -1,38 +1,54 @@
 import React, { useState, useContext } from 'react';
 import Modal from './Modal';
-import FormInput from '../common/FormInput';
-import Button from '../common/Button';
-import { MessageContext } from '../common/MessageContext';
-import Message from '../common/Message';
+import FormInput from './../common/FormInput';
+import Button from './../common/Button';
+import Message from './../common/Message';
+import { MessageContext } from './../../contexts/MessageContext';
+import './LoginModal.scss';
 
-const LoginModal = ({ onLogin, onClose }) => {
+const LoginModal = ({ onLogin, onClose, onOpenCreateAccount }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { message } =useContext(MessageContext);
-    
+    const { message } = useContext(MessageContext);
+
     return (
         <div className="login-modal">
-        <Modal isOpen={true} onClose={onClose}>
-            <div className="login-content">
-                <h2>Login</h2>
-                <FormInput 
-                    name="email" 
-                    label="Email" 
-                    type="email" 
-                    value={email} 
-                    onChange={e => setEmail(e.target.value)} 
-                />
-                <FormInput 
-                    name="password" 
-                    label="Password" 
-                    type="password" 
-                    value={password} 
-                    onChange={e => setPassword(e.target.value)} 
-                />
-                <Message message = {message} />
-                <Button onClick={() => onLogin(email, password)}>Sign In</Button>
-            </div>
-        </Modal>
+            <Modal isOpen={true} onClose={onClose}>
+                <div className="login-modal__content">
+                    <h2 className="login-modal__title">Login</h2>
+                    {/* sign up link */}
+                    <p className="login-modal__signup-link">
+                        Don't have an account?
+                        <button onClick={(e) => {
+                            e.preventDefault();
+                            onOpenCreateAccount();
+                        }}>Sign up</button>
+                    </p>
+                    <FormInput
+                        className="login-modal__input"
+                        name="email"
+                        label="Email"
+                        type="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                    />
+                    <FormInput
+                        className="login-modal__input"
+                        name="password"
+                        label="Password"
+                        type="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                    />
+                    <Message className="login-modal__message" message={message} />
+                    <Button
+                        className="login-modal__button"
+                        onClick={() => onLogin(email, password)}>
+                        Sign In
+                    </Button>
+
+                </div>
+            </Modal>
         </div>
     );
 };

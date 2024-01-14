@@ -30,9 +30,6 @@ class ReviewController extends Controller
     public function index()
     {
         try {
-            if(!$this->checkRole('admin')) {
-                return $this->sendError('Unauthorized', [], 403);
-            }
             $reviews = Review::paginate(10);
             return $this->sendResponse(ReviewListResource::collection($reviews), 'Reviews fetched successfully');
         } catch (\Exception $e) {
@@ -127,7 +124,7 @@ class ReviewController extends Controller
     public function showByRecipe(string $recipeId)
     {
         try {
-            $reviews = Review::where('recipe_id', $recipeId)->paginate(10);
+            $reviews = Review::where('recipe_id', $recipeId)->paginate(3);
             return $this->sendResponse(ReviewResource::collection($reviews), 'Reviews fetched successfully');
         } catch (\Exception $e) {
             Log::error('Error fetching reviews: ' . $e->getMessage());

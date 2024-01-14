@@ -26,12 +26,19 @@ class RecipeDetailResource extends JsonResource
         return [
             'id' => $this->recipe_id,
             'name' => $this->recipe_name,
-            'imagePath' => $this->recipe_image_path,
-            'cookingTime' => $this->cooking_time,
-            'stepInstruction' => $this->step_instruction,
             'createdAt' => Carbon::parse($this->created_at)->format('Y-m-d H:i:s'),
             'updatedAt' => Carbon::parse($this->updated_at)->format('Y-m-d H:i:s'),
             'createdBy' => $this->user->first_name .' '. $this->user->last_name,
+            'imagePath' => $this->recipe_image_path,
+            'stepInstruction' => $this->step_instruction,
+            'cookingTime' => $this->cooking_time,
+            'ingredients' => $this->ingredients->map(function ($ingredient) {
+                return [
+                    'name' => $ingredient->name,
+                    'quantity' => $ingredient->pivot->quantity,
+                    'unit' => $ingredient->pivot->measurement_unit
+                ];
+            }),
         ];
     }
 }

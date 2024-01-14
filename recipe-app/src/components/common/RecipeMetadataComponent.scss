@@ -1,0 +1,14 @@
+@import './../../assets/styles/variables';
+@import './../../assets/styles/mixins';
+
+.recipe-detail__metadata {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: $spacing-medium;
+
+    .metadata__author, .metadata__created-at {
+        @include text-style($font-size-small, $text-color-light);
+        margin-bottom: $spacing-small;
+    }
+}

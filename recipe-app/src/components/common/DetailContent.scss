@@ -1,0 +1,47 @@
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
+.detail-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: $spacing-unit;
+    align-items: start;
+    width: 100%;
+
+    &__title,
+    &__image-container,
+    &__instruction,
+    &__metadata {
+        grid-column: 1 / -1;
+    }
+
+    &__title {
+        font-size: $font-size-large;
+        text-align: center;
+        margin-bottom: $spacing-medium;
+        color: $primary-color;
+    }
+
+    &__metadata {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: $spacing-medium;
+    }
+
+    &__instructions {
+        font-size: $font-size-normal;
+        color: $font-color;
+        margin-bottom: $spacing-large;
+    }
+
+    &__item {
+        font-size: $font-size-small;
+        color: $text-color-light;
+        margin-bottom: $spacing-small;
+    }
+
+    @include respond-to("phone") {
+        grid-template-columns: 1fr;
+    }
+}

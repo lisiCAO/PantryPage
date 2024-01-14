@@ -1,10 +1,16 @@
+@import "./../assets/styles/variables";
+@import "./../assets/styles/mixins";
+
 .home-page {
-    .welcome-section {
-        text-align: center;
-        margin-top: 50px;
-        h1 {
-            font-size: 2em;
-            color: #333;
-        }
+  .welcome-section {
+    margin-top: $spacing-medium;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    @include respond-to("phone") {
+      padding: 0 $spacing-small;
     }
+  }
 }

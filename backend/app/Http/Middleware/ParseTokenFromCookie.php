@@ -12,17 +12,17 @@ class ParseTokenFromCookie
 
     public function handle(Request $request, Closure $next): Response
     {
-        // 从 Cookie 中获取 JWT
+        // get JWT from cookie
         if ($jwt = $request->cookie('jwt')) {
-            // 将 JWT 添加到请求头中
+            // set the JWT on the request
             $request->headers->set('Authorization', 'Bearer ' . $jwt);
         }
 
         try {
-            // 验证 JWT
+            // attempt to resolve the user with the token
             JWTAuth::parseToken()->authenticate();
         } catch (\Exception $e) {
-            // JWT 验证失败，返回 403 错误
+            // if the token is invalid return 401
             return response()->json(['success'=> 'false', 'message' => 'Access denied'], 403);
         }
 

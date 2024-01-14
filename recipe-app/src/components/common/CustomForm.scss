@@ -1,91 +1,32 @@
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
+
 .custom-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
+  @include container-style;
+  padding: $spacing-medium;
+  background-color: $background-color-light;
+  border-radius: $border-radius;
+
+  &__field {
+    margin-bottom: $spacing-medium;
+  }
+
+  &__checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-small;
+
+    input[type="checkbox"] {
+      margin-right: $spacing-small;
     }
-  
-    input[type="text"],
-    input[type="number"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      margin-bottom: 15px;
-      font-size: 16px;
-    }
-  
-    .form-input {
-      margin-bottom: 15px;
-    }
-  
-    .form-textarea {
-      textarea {
-        height: 100px;
-        resize: vertical;
-      }
-    }
-  
-    .form-file-input {
-      input[type="file"] {
-        border: none;
-      }
-    }
-  
-    .form-select {
-      select {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        margin-bottom: 15px;
-        font-size: 16px;
-        background-color: #fff;
-      }
-    }
-  
-    .checkbox-label {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-  
-      input[type="checkbox"] {
-        margin-right: 5px;
-      }
-    }
-  
-    .submit-button {
-      display: block;
-      width: 100%;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-      text-align: center;
-  
-      &:disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
-      }
-    }
-  
-    .message {
-      margin-top: 20px;
-        padding: 10px 20px;
-        border-radius: 4px;
-        font-size: 16px;
-        text-align: center;
-    }
-    }
-    
+  }
+
+  &__submit-button {
+    @include button-style($primary-color, white);
+  }
+
+  // Responsive
+  @include respond-to("tablet") {
+    padding: $spacing-small;
+  }
+}

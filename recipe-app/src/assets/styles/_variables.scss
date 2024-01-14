@@ -1,0 +1,45 @@
+// Variables
+// colors
+$primary-color: #2c3e50;
+$secondary-color: #a67c52;
+$error-color: #dc3545;
+$highlight-color: #a67c52;
+
+$background-color-light: #f8f9fa;
+$background-color-dark: #343a40;
+
+$font-color: #212529;
+$text-color-light: #6c757d;
+$font-color-light: #f8f9fa;
+$font-color-dark: #212529;
+
+$info-color: #d1ecf1;
+$success-color: #d4edda;
+$warning-color: #fff3cd;
+
+// font
+$font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-size-normal: 16px;
+$font-size-large: 20px;
+$font-size-small: 14px;
+
+// spacing
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 32px;
+$spacing-unit: 16px;
+$max-container-width: 800px;
+
+// radius
+$border-radius-small: 2px;
+$border-radius: 4px; 
+$border-radius-large: 8px;
+$border-radius-circle: 50%;
+
+// shadow
+$box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+// z-index 
+$z-index-modal: 1000;
+$z-index-dropdown: 100;
+$z-index-navbar: 500;

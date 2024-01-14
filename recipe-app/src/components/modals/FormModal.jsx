@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import Modal from './Modal';
 import CustomForm from './../common/CustomForm';
-import { MessageContext } from '../common/MessageContext';
+import { MessageContext } from './../../contexts/MessageContext';
 import './FormModal.scss';
 
 const FormModal = ({ isOpen, onClose, onSubmit, config, initialData, mode }) => {
-    const { message } =useContext(MessageContext);
+    const { message } = useContext(MessageContext);
     const handleFormSubmissionSuccess = () => {
-        if(message){
+        if (message) {
             setTimeout(() => {
                 onClose();
             }, 3000);
