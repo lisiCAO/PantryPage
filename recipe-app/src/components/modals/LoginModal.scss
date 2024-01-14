@@ -8,13 +8,13 @@
         padding: $spacing-medium;
         border-radius: $border-radius;
         box-shadow: $box-shadow;
-        width: auto; // 适应不同屏幕宽度
-        min-width: 400px; // 限制最小宽度
-        max-width: 500px; // 限制最大宽度
+        width: auto; 
+        min-width: 400px; 
+        max-width: 500px; 
 
         @include respond-to('tablet') {
             padding: $spacing-small;
-            max-width: 100%; // 平板及更小设备上占据全部宽度
+            max-width: 100%; 
         }
 
         .login-modal__title {
@@ -23,8 +23,16 @@
 
             @include respond-to('phone') {
                 margin-bottom: $spacing-small;
-                font-size: $font-size-large; // 在手机上使用较大的标题
+                font-size: $font-size-large; 
             }
+        }
+
+        .login-modal__signup-link {
+            @include text-style($font-size-small, $text-color-light);
+            // position to the right of parent element
+            position: relative;
+            left: 50%;
+ 
         }
 
         .login-modal__input {
@@ -32,7 +40,7 @@
 
             &__input {
                 @include respond-to('phone') {
-                    padding: $spacing-small; // 手机上适应的内边距
+                    padding: $spacing-small; 
                 }
             }
         }
@@ -44,13 +52,13 @@
 
         .login-modal__button {
             @include button-style($primary-color, white);
-            width: 100%; // 按钮宽度与容器一致
+            width: 100%; 
             margin-top: $spacing-small;
             margin-left: 0;
             margin-right: 0;
 
             @include respond-to('tablet') {
-                font-size: $font-size-normal; // 平板和手机上使用适中的字体大小
+                font-size: $font-size-normal; 
             }
         }
     }
