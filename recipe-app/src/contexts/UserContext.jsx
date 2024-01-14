@@ -11,7 +11,6 @@ export const UserProvider = ({ children }) => {
     const [showCreateAccount, setShowCreateAccount] = useState(false); // show/hide create account modal  
     const { showMessage } = useContext(MessageContext);          // save the message context
     const [currentPage, setCurrentPage] = useState('home');
-    const [newUser, setNewUser] = useState(null); // save the new user data
     const handleLogout = useCallback(async () => {
       try {
           await ApiService.logout();
@@ -60,7 +59,7 @@ export const UserProvider = ({ children }) => {
       }, tokenRefreshInterval);
   
       return () => clearInterval(intervalId); // cleanup
-  }, []);
+  }, [handleLogout]);
 
   const handleLogin = async (email, password) => {
     try {
@@ -85,7 +84,6 @@ export const UserProvider = ({ children }) => {
   const handleCreate = async (newUser) => {
     await ApiService.createUser(newUser)
     .then(addedUser => {
-        setNewUser(addedUser);
         showMessage('success', 'User created successfully');
     })
 };

@@ -24,12 +24,13 @@
 
   &__title {
     
-    @include text-style($font-size-large);
+    @include text-style($font-color-light,$font-size-large);
+    font-weight: bold;
     padding: 0.5rem 1rem;
     border-radius: $border-radius;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    color: $text-color-light;
+
 
     &:hover {
       transform: translateY(-2px);

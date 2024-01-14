@@ -6,7 +6,7 @@ const CreateUserModal = ({ isOpen, onClose, onCreate, user }) => {
 
     const filteredConfig = userConfig.filter(field => {
         if (field.name === 'category') {
-            return user && user.category == 'admin'; // only show category field to admin users
+            return user && user.category === 'admin'; // only show category field to admin users
         }
         return true;
     });

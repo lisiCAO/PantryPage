@@ -31,7 +31,16 @@
             @include text-style($font-size-small, $text-color-light);
             // position to the right of parent element
             position: relative;
-            left: 50%;
+            left: 48%;
+
+            button {
+                @include button-style($background-color-light, $text-color-light);
+                padding: 0;
+                margin-left: $spacing-small;
+                margin-right: $spacing-small;
+                font-size: $font-size-small;
+                text-decoration: underline;
+            }
  
         }
 

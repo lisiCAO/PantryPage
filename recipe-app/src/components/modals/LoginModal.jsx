@@ -19,10 +19,10 @@ const LoginModal = ({ onLogin, onClose, onOpenCreateAccount }) => {
                     {/* sign up link */}
                     <p className="login-modal__signup-link">
                         Don't have an account? 
-                        <a href="#" onClick={(e) => {
+                        <button  onClick={(e) => {
                             e.preventDefault();
                             onOpenCreateAccount();
-                        }}>Sign up</a>
+                        }}>Sign up</button>
                     </p>
                     <FormInput 
                         className="login-modal__input"
