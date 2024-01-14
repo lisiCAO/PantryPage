@@ -2,10 +2,10 @@ version: '3.8'
 services:
   backend:
     build:
-      context: ./backend  # Dockerfile 的构建上下文路径
+      context: ./backend  
     container_name: laravel-app
     ports:
-      - "8000:8000"  # 映射容器的 8000 端口到本地的 8000 端口
+      - "8000:8000"  
     depends_on:
       - mysql
     volumes:
@@ -15,10 +15,10 @@ services:
 
   frontend:
     build:
-      context: ./recipe-app  # Dockerfile 的构建上下文路径
+      context: ./recipe-app  
     container_name: react-app
     ports:
-      - "3000:3000"  # 映射容器的 3000 端口到本地的 3000 端口
+      - "3000:3000"  
     volumes:
       - ./recipe-app:/app
       - /app/node_modules
@@ -32,7 +32,7 @@ services:
       MYSQL_PASSWORD: myDBpw
       MYSQL_DATABASE: fsd10_tango
     ports:
-      - "3307:3306"  # 映射容器的 3306 端口到本地的 3307 端口
+      - "3307:3306"  
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
