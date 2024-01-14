@@ -5,12 +5,15 @@
     height: auto; 
     border-radius: $border-radius-large;
     margin-right: $spacing-small; 
+    display: flex;
+    justify-content: center;
 }
 
 .detail-content__image {
     width: 70%;
     height: auto;
     border-radius: $border-radius; // square
+
 
     // size
     &--small { width: 50%; }

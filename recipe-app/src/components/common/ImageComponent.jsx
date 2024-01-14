@@ -1,4 +1,5 @@
 import React from 'react';
+import defaultImage from './../../assets/image/default.png';
 import './ImageComponent.scss';
 
 const ImageComponent = ({ src, alt, size = 'normal', shape = 'square' }) => {
@@ -6,7 +7,7 @@ const ImageComponent = ({ src, alt, size = 'normal', shape = 'square' }) => {
 
     return (
         <div className="detail-content__image-container">
-            <img src={src} alt={alt} className={imageClass} />
+            <img src={src} alt={alt} className={imageClass} onError={(e) => { e.target.onerror = null; e.target.src = defaultImage; }}/>
         </div>
     );
 };

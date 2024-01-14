@@ -10,7 +10,7 @@ const RecipeDetail = ({ recipe, onToggleFavorite }) => {
     const config = {
         title: 'name',
         image: 'imagePath',
-        instructions: 'instructions',
+        instructions: 'stepInstruction',
         createdBy: 'createdBy',
         updatedAt: 'updatedAt',
         ignoreFields: ['id', 'isFavorited','createdAt', 'ingredients']

@@ -4,7 +4,7 @@
     @include container-style; 
     width: 90%;
     max-width: $max-container-width;
-    margin: auto; // 确保容器居中
+    margin: auto; 
     display: flex;
     flex-direction: column;
     align-items: center;

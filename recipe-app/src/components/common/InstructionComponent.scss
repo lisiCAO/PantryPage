@@ -4,4 +4,13 @@
     width: 100%;
     margin: $spacing-unit 0;
     text-align: start;
+
+    .instruction-title {
+        margin-bottom: $spacing-small; 
+    }
+
+    .instruction-content {
+        margin-bottom: $spacing-small;
+    }
 }
+
