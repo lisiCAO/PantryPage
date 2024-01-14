@@ -1,4 +1,4 @@
-#### Title: Recipe Web Application
+## Recipe Web Application
 
 #### Description
 Recipe Web Application (PantryPage) is a full-stack web application designed for recipe enthusiasts. It features a Laravel RESTful API backend, a React-based frontend, and incorporates JWT for secure authentication.
