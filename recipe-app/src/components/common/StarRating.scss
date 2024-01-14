@@ -4,23 +4,21 @@
   align-items: center;
 
   &__star {
-    // 星星的基本样式
-    color: gold;       // 星星的颜色
-    margin-right: 4px; // 星星之间的间距
-    cursor: pointer;   // 鼠标悬停时的手形图标
+    // Basic
+    color: gold; 
+    margin-right: 4px; 
+    cursor: pointer; 
 
     &:hover {
-      transform: scale(1.1); // 悬停时放大星星
+      transform: scale(1.1); 
     }
   }
 
   &__star--full {
-    // 满星样式
-    color: gold; // 满星的颜色
+    color: gold; 
   }
 
   &__star--empty {
-    // 空星样式
-    color: grey; // 空星的颜色
+    color: grey; 
   }
 }

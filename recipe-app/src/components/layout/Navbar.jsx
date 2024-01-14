@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './../common/Button';
-import './Navbar.scss'; 
+import './Navbar.scss';
 
 const Navbar = ({ onLoginClick, isLoggedIn, user, onLogout, navigateTo }) => {
     const handleUserClick = () => {
@@ -9,7 +9,7 @@ const Navbar = ({ onLoginClick, isLoggedIn, user, onLogout, navigateTo }) => {
     const handleLogoClick = () => {
         navigateTo('home');
     }
-    
+
     return (
         <nav className="navbar">
             <div className="navbar__logo">
@@ -17,12 +17,20 @@ const Navbar = ({ onLoginClick, isLoggedIn, user, onLogout, navigateTo }) => {
             </div>
             <div className="navbar__title" onClick={handleLogoClick}>Recipe Web</div>
             {!isLoggedIn ?
-                <Button className="navbar__button" onClick={onLoginClick}>Login</Button> :
+                <Button
+                    className="navbar__button"
+                    onClick={onLoginClick}>
+                    Login
+                </Button> :
                 <>
                     <div className="navbar__user-info" onClick={handleUserClick}>
                         Welcome, {user.email}
                     </div>
-                    <Button className="navbar__button" onClick={onLogout}>Logout</Button>
+                    <Button
+                        className="navbar__button"
+                        onClick={onLogout}>
+                        Logout
+                    </Button>
                 </>
             }
         </nav>

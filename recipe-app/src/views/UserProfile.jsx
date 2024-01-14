@@ -1,4 +1,4 @@
-import React , { useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import Sidebar from '../components/layout/Sidebar';
 import UserDetails from '../components/pages/regular/UserDetails';
 import UserRecipes from '../components/pages/regular/UserRecipes';
@@ -28,7 +28,7 @@ function UserProfile() {
     return (
         <div className="user-profile">
             <div className="user-body">
-                <Sidebar setActiveTab={setActiveTab} category={user.category}/>
+                <Sidebar setActiveTab={setActiveTab} category={user.category} />
                 <div className="content">
                     {renderComponent()}
                 </div>

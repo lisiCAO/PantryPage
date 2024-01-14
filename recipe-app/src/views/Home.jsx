@@ -10,11 +10,11 @@ import './Home.scss';
 const Home = () => {
     const [recipes, setRecipes] = useState([]);
     const [selectedRecipe, setSelectedRecipe] = useState(null);
-    const [searchTerm, setSearchTerm] = useState(''); // search term
+    const [searchTerm, setSearchTerm] = useState('');
     const { isLoggedIn, setShowLoginModal } = useContext(UserContext);
     const { showMessage, hideMessage } = useContext(MessageContext);
     const [refreshFavorites, setRefreshFavorites] = useState(false);
-    
+
     useEffect(() => {
         const fetchRecipesAndFavorites = async () => {
             try {
@@ -22,14 +22,13 @@ const Home = () => {
                 if (!Array.isArray(recipesData)) {
                     return;
                 }
-    
+
                 let updatedRecipes = recipesData.map(recipe => ({
                     ...recipe,
-                    isFavorited: false, // default to false
+                    isFavorited: false,
                 }));
-    
+
                 if (isLoggedIn) {
-                    // Fetch the user's favorite recipes
                     const userFavorites = await ApiService.fetchFavoriteRecipeByUser();
                     const userFavoritesIds = new Set(userFavorites.map(favorite => favorite.recipeId));
                     updatedRecipes = updatedRecipes.map(recipe => ({
@@ -42,61 +41,58 @@ const Home = () => {
                 setRecipes([]);
             }
         };
-    
+
         fetchRecipesAndFavorites();
-    }, [isLoggedIn, refreshFavorites]); // Fetch recipes when the user logs in or out
-    
-    
+    }, [isLoggedIn, refreshFavorites]);
 
     const handleViewDetails = (recipe) => {
         const recipeId = recipe.id;
-        ApiService.fetchRecipe(recipeId) 
-        .then(data => {
-            // update selected recipe's favorite status
-            const updatedRecipe = { ...data, isFavorited: recipe.isFavorited };
-            setSelectedRecipe(updatedRecipe);
-        })
-        .catch(error => {
-            console.error('Error fetching recipe', error);
-            setSelectedRecipe(null);
-        });
+        ApiService.fetchRecipe(recipeId)
+            .then(data => {
+                const updatedRecipe = { ...data, isFavorited: recipe.isFavorited };
+                setSelectedRecipe(updatedRecipe);
+            })
+            .catch(error => {
+                console.error('Error fetching recipe', error);
+                setSelectedRecipe(null);
+            });
     }
 
     const handleBackToList = () => {
-        setSelectedRecipe(null); // Clear the selected recipe
-        hideMessage(); // Clear any messages
+        setSelectedRecipe(null);
+        hideMessage();
     };
 
     const handleToggleFavorite = useCallback(async (recipeId) => {
-            if (!isLoggedIn) {
-                showMessage('error', 'Please log in to favorite recipes.');
-                setShowLoginModal(true);
-                return;
-            }
-            const recipeToUpdate = recipes.find(recipe => recipe.id === recipeId);
-            if (!recipeToUpdate) {
-                console.error('Recipe not found');
-                return;
-            }
-        
-            try {
+        if (!isLoggedIn) {
+            showMessage('error', 'Please log in to favorite recipes.');
+            setShowLoginModal(true);
+            return;
+        }
+        const recipeToUpdate = recipes.find(recipe => recipe.id === recipeId);
+        if (!recipeToUpdate) {
+            console.error('Recipe not found');
+            return;
+        }
 
-                const apiFunction = recipeToUpdate.isFavorited ? ApiService.deleteFavoriteRecipeByUser : ApiService.addFavoriteRecipeByUser;
-                await apiFunction(recipeId);
-                const updatedRecipes = recipes.map(recipe =>
-                    recipe.id === recipeId ? { ...recipe, isFavorited: !recipe.isFavorited } : recipe
-                );
-        
-                setRecipes(updatedRecipes);
-                if (selectedRecipe && selectedRecipe.id === recipeId) {
-                    setSelectedRecipe({ ...selectedRecipe, isFavorited: !selectedRecipe.isFavorited });
-                }
-            } catch (error) {
-                console.error('Error toggling favorite status', error);
-            };
-            setRefreshFavorites(prev => !prev);
-        }, [recipes, selectedRecipe, isLoggedIn, showMessage, setShowLoginModal, setRefreshFavorites]);
-    
+        try {
+
+            const apiFunction = recipeToUpdate.isFavorited ? ApiService.deleteFavoriteRecipeByUser : ApiService.addFavoriteRecipeByUser;
+            await apiFunction(recipeId);
+            const updatedRecipes = recipes.map(recipe =>
+                recipe.id === recipeId ? { ...recipe, isFavorited: !recipe.isFavorited } : recipe
+            );
+
+            setRecipes(updatedRecipes);
+            if (selectedRecipe && selectedRecipe.id === recipeId) {
+                setSelectedRecipe({ ...selectedRecipe, isFavorited: !selectedRecipe.isFavorited });
+            }
+        } catch (error) {
+            console.error('Error toggling favorite status', error);
+        };
+        setRefreshFavorites(prev => !prev);
+    }, [recipes, selectedRecipe, isLoggedIn, showMessage, setShowLoginModal, setRefreshFavorites]);
+
     const handleSearch = (term) => {
         setSearchTerm(term);
         // searchRecipes(term); // TODO: Implement search
@@ -105,7 +101,7 @@ const Home = () => {
     // Filter or sort the recipes list
     const filteredRecipes = recipes.filter(recipe =>
         recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
-    )|| [];
+    ) || [];
 
     return (
         <div className="home-page">
@@ -123,7 +119,8 @@ const Home = () => {
                 )}
             </main>
         </div>
-    )};
+    )
+};
 
 export default Home;
 // Path: recipe-app/src/views/Home.jsx

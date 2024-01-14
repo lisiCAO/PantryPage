@@ -1,5 +1,5 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .favorite-button {
   color: $primary-color;
@@ -11,12 +11,6 @@
   cursor: pointer;
 
   &--favorited {
-    color: $error-color; 
+    color: $error-color;
   }
 }
-
-
-/*
-在FavoriteButton.scss中定义favorite-button和favorite-button--favorited样式。
-在FavoriteButton组件中使用favorite-button和条件性地使用favorite-button--favorited。
-*/

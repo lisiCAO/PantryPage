@@ -1,19 +1,19 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .details-modal {
-    @include modal-style; 
+    @include modal-style;
     display: flex;
 
     .detail-content {
-        &__image{
-            width:200px;
+        &__image {
+            width: 200px;
         }
     }
 
     .button {
-        margin: $spacing-small; 
-        @include button-style($primary-color, white); 
+        margin: $spacing-small;
+        @include button-style($primary-color, white);
 
         &--edit {
             @include button-style($secondary-color, white);

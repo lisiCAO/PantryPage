@@ -1,5 +1,5 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .form-modal {
     .form-modal__content {
@@ -10,7 +10,7 @@
         box-shadow: $box-shadow;
         max-width: 600px;
 
-        @include respond-to('tablet') {
+        @include respond-to("tablet") {
             max-width: 100%;
             padding: $spacing-small;
         }
@@ -19,7 +19,7 @@
             color: $primary-color;
             margin-bottom: $spacing-medium;
 
-            @include respond-to('phone') {
+            @include respond-to("phone") {
                 font-size: $font-size-large;
             }
         }
@@ -28,7 +28,7 @@
             margin-bottom: $spacing-small;
 
             &__input {
-                @include respond-to('phone') {
+                @include respond-to("phone") {
                     padding: $spacing-small;
                 }
             }
@@ -39,7 +39,7 @@
             width: 100%;
             margin-top: $spacing-small;
 
-            @include respond-to('phone') {
+            @include respond-to("phone") {
                 font-size: $font-size-normal;
             }
         }

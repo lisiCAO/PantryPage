@@ -3,11 +3,11 @@ import DetailsModal from '../DetailsModal.jsx';
 
 const RecipeDetailsModal = ({ isOpen, onClose, recipe, onEdit }) => {
     return (
-        <DetailsModal 
-            isOpen = {isOpen}
-            onClose = {onClose}
-            data = {recipe}
-            type = 'recipe'
+        <DetailsModal
+            isOpen={isOpen}
+            onClose={onClose}
+            data={recipe}
+            type='recipe'
             className="recipe-details-modal"
             onEdit={onEdit}
         />

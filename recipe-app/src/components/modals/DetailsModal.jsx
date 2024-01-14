@@ -21,14 +21,14 @@ const displayConfig = {
         image: 'review_image_path',
         ignoreFields: ['review_id', 'recipe_id', 'user_id']
     },
-    user: { 
+    user: {
         title: 'name',
         image: 'imagePath',
         ignoreFields: ['id', 'firstName', 'lastName', 'password']
     }
 };
-const DetailsModal =  ({ isOpen, onClose, data, type, onEdit }) => {
-    if(!data || !isOpen) return null;
+const DetailsModal = ({ isOpen, onClose, data, type, onEdit }) => {
+    if (!data || !isOpen) return null;
 
     const config = displayConfig[type];
 

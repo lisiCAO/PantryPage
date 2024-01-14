@@ -1,13 +1,13 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .message {
-  @include text-style($font-size-normal); 
+  @include text-style($font-size-normal);
   padding: $spacing-small;
   margin: $spacing-small 0;
   border-radius: $border-radius;
   text-align: center;
-  border: 1px solid transparent; // default
+  border: 1px solid transparent; // Default
 
   &--success {
     @include adjust-color($success-color, 20%);
@@ -23,19 +23,19 @@
 
   &--error {
     @include adjust-color($error-color, 20%);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    border: none; 
-    border-radius: 8px; 
-    font-weight: bold; 
-    animation: fadeIn 0.3s ease-in-out; 
-  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    animation: fadeIn 0.3s ease-in-out;
+
     &:before {
       content: "\26A0"; // ⚠
       padding-right: 10px;
     }
   }
-  
-  // animation
+
+  // Animation
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -47,6 +47,3 @@
     }
   }
 }
-
-
-

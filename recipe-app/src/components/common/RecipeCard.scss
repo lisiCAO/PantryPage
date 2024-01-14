@@ -1,5 +1,5 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .recipe-card {
   @include container-style;
@@ -33,7 +33,7 @@
 
   &__delete {
     @include button-style($error-color, white);
-    position: absolute; // Example of positioning the delete button
+    position: absolute;
     top: $spacing-small;
     right: $spacing-small;
   }
@@ -44,8 +44,6 @@
     right: $spacing-small;
   }
 }
-
-
 
 /*
 // RecipeCard.scss
@@ -60,12 +58,12 @@
     cursor: pointer;
 
     img {
-        max-width: 120px; // 限制图片的最大宽度
-        max-height: 120px; // 限制图片的最大高度
-        width: auto;  // 保持图片宽度自适应
-        height: auto; // 保持图片高度自适应
+        max-width: 120px; 
+        max-height: 120px; 
+        width: auto;  
+        height: auto; 
         border-radius: 4px;
-        object-fit: cover; // 保证图片内容被裁剪以填充元素的整个内容框
+        object-fit: cover; 
     }
 
     .recipe-info {

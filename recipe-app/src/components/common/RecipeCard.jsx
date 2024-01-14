@@ -17,18 +17,26 @@ const RecipeCard = ({ recipe, onOpenDetails, onDelete, onToggleFavorite }) => {
 
     return (
         <div className="recipe-card" onClick={() => onOpenDetails(recipe)}>
-            <img src={`http://localhost:8000${recipe.imagePath}`} onError={(e) => { e.target.onerror = null; e.target.src = defaultImage; }} alt={recipe.name} className="recipe-card__image" />
+            <img
+                src={`http://localhost:8000${recipe.imagePath}`}
+                onError={(e) => { e.target.onerror = null; e.target.src = defaultImage; }}
+                alt={recipe.name}
+                className="recipe-card__image"
+            />
             <div className="recipe-card__info">
                 <h3>{recipe.name}</h3>
                 <p>Comments: {recipe.reviewsCount}</p>
                 <p>Favorites: {recipe.favoritesCount}</p>
             </div>
             {onDelete && (
-                <Button onClick={(e) => handleButtonClick(e)} className="recipe-card__delete">Delete</Button>
+                <Button
+                    onClick={(e) => handleButtonClick(e)}
+                    className="recipe-card__delete">Delete
+                </Button>
             )}
             {onToggleFavorite && (
-                <FavoriteButton 
-                    isFavorited={recipe.isFavorited} 
+                <FavoriteButton
+                    isFavorited={recipe.isFavorited}
                     onToggle={(e) => handleFavoriteClick(e)}
                 />
             )}

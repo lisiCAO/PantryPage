@@ -27,49 +27,46 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     const [selectedReview, setSelectedReview] = useState(null);
     const [editingReview, setEditingReview] = useState(null);
-    const [reviewToDelete, setReviewToDelete] = useState(null); // review to delete
-
+    const [reviewToDelete, setReviewToDelete] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
-
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [showDetailsModal, setShowDetailsModal] = useState(false);
-    const [showConfirmModal, setShowConfirmModal] = useState(false); 
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
 
-    const { showMessage, hideMessage } = useContext(MessageContext); // Show/hide message
+    const { showMessage, hideMessage } = useContext(MessageContext);
 
-    // load initial data
     useEffect(() => {
         ApiService.fetchReviews()
-        .then(response => {
-            if (Array.isArray(response)) {
-                setReviews(response);
-            } else {
-                console.error('Unable to fetch reviews.');
-                return [];
-            }
-        })
-        .catch(error => {
-            console.error(error);
-            setReviews([]);
-        });
+            .then(response => {
+                if (Array.isArray(response)) {
+                    setReviews(response);
+                } else {
+                    console.error('Unable to fetch reviews.');
+                    return [];
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                setReviews([]);
+            });
     }, []);
-    
+
     const handleCreate = async (newReview) => {
         await ApiService.createReview(newReview)
-        .then(addedReview => {
-            setReviews([...reviews, addedReview]);
-            showMessage('success', 'Review created successfully.');
-        })
+            .then(addedReview => {
+                setReviews([...reviews, addedReview]);
+                showMessage('success', 'Review created successfully.');
+            })
     };
 
     const handleViewDetails = (review) => {
         const reviewId = review.id;
-            ApiService.fetchReview(reviewId) // Fetch the review details
-              .then(data => {
+        ApiService.fetchReview(reviewId)
+            .then(data => {
                 setSelectedReview(data);
                 setShowDetailsModal(true);
-              })
-              .catch(error => {console.error(error); setEditingReview(null);}) // Handle error
+            })
+            .catch(error => { console.error(error); setEditingReview(null); })
     };
 
     const handleEditReview = (review) => {
@@ -80,14 +77,13 @@ const Reviews = () => {
     const saveEditedReview = async (updatedReviewData) => {
         await ApiService.updateReview(editingReview.id, updatedReviewData)
             .then(updatedReview => {
-                // Update the reviews list with the updated review
-                setReviews(reviews.map(review => 
+                setReviews(reviews.map(review =>
                     review.id === updatedReview.id ? updatedReview : review
                 ));
                 showMessage('success', 'Review updated successfully.');
             })
     };
-    
+
     const confirmDelete = (review) => {
         setReviewToDelete(review);
         setShowConfirmModal(true);
@@ -119,7 +115,7 @@ const Reviews = () => {
         { header: 'Created At', cell: (row) => row.createdAt },
         { header: 'Created By', cell: (row) => row.userName },
     ];
-    
+
     // Filter or sort the reviews list
     const filteredReviews = reviews.filter(review =>
         review.recipeName.toLowerCase().includes(searchTerm.toLowerCase())
@@ -131,26 +127,26 @@ const Reviews = () => {
                 <Button className="button--add" onClick={() => setShowCreateModal(true)}>Add New</Button>
                 <SearchBar value={searchTerm} onChange={handleSearch} />
             </div>
-            <Table 
-                columns={columns} 
-                data={filteredReviews} 
-                onViewDetails={handleViewDetails} 
+            <Table
+                columns={columns}
+                data={filteredReviews}
+                onViewDetails={handleViewDetails}
                 onDelete={confirmDelete}
             />
             {showCreateModal && (
-                <CreateReviewModal 
-                    isOpen={showCreateModal} 
-                    onClose={() => {      
+                <CreateReviewModal
+                    isOpen={showCreateModal}
+                    onClose={() => {
                         setShowCreateModal(false);
                         hideMessage();
-                    }} 
+                    }}
                     onCreate={handleCreate}
                 />
             )}
             {showDetailsModal && (
-                <ReviewDetailsModal 
-                    isOpen={showDetailsModal} 
-                    onClose={() => setShowDetailsModal(false)} 
+                <ReviewDetailsModal
+                    isOpen={showDetailsModal}
+                    onClose={() => setShowDetailsModal(false)}
                     review={selectedReview}
                     onEdit={handleEditReview}
                 />
@@ -159,15 +155,15 @@ const Reviews = () => {
                 <EditReviewModal
                     isOpen={!!editingReview}
                     onClose={() => {
-                            setEditingReview(null); 
-                            setShowDetailsModal(false); 
-                            hideMessage();
-                        }}
+                        setEditingReview(null);
+                        setShowDetailsModal(false);
+                        hideMessage();
+                    }}
                     onEdit={saveEditedReview}
                     reviewData={editingReview}
-                /> 
+                />
             )}
-            <ConfirmModal 
+            <ConfirmModal
                 isOpen={showConfirmModal}
                 title="Confirm Delete"
                 message="Are you sure you want to delete this review?"

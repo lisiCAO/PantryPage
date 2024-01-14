@@ -1,23 +1,23 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .confirm-modal-content {
-    @include modal-style; 
+    @include modal-style;
     padding: 20px;
-    width: 400px; 
+    width: 400px;
 }
 
 .confirm-modal-header {
-    @include text-style($font-size-large, $font-color); 
+    @include text-style($font-size-large, $font-color);
     margin-bottom: $spacing-medium;
-    text-align: center; 
-    font-weight: bold ;
+    text-align: center;
+    font-weight: bold;
 }
 
 .confirm-modal-body {
-    @include text-style($font-size-normal, $text-color-light); 
+    @include text-style($font-size-normal, $text-color-light);
     margin-bottom: $spacing-medium;
-    text-align: center; 
+    text-align: center;
 }
 
 .confirm-modal-footer {
@@ -27,11 +27,11 @@
 
     .button {
         &:first-child {
-            @include button-style($error-color, white); 
+            @include button-style($error-color, white);
         }
 
         &:last-child {
-            @include button-style($secondary-color, white); 
+            @include button-style($secondary-color, white);
         }
     }
 }

@@ -1,8 +1,7 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .form-input {
-  // 基本样式
   display: flex;
   flex-direction: column;
   margin-bottom: $spacing-medium;
@@ -13,7 +12,6 @@
   }
 
   &__input {
-    // 输入框样式
     padding: $spacing-small;
     border: 1px solid $primary-color;
     border-radius: 4px;

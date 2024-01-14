@@ -1,11 +1,12 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .table {
     width: 100%;
     border-collapse: collapse;
 
-    th, td {
+    th,
+    td {
         padding: $spacing-small;
         border: 1px solid $primary-color;
         text-align: left;
@@ -20,8 +21,8 @@
     }
 
     .button {
-        // use variables
-        &--view, &--delete {
+        &--view,
+        &--delete {
             margin: 0 $spacing-small $spacing-small 0;
         }
 

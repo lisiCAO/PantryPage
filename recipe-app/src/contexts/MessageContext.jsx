@@ -1,11 +1,11 @@
 import { createContext, useState, useContext, useEffect } from "react";
 
-export const MessageContext =  createContext();
+export const MessageContext = createContext();
 
 export const useMessage = () => useContext(MessageContext);
 
-export const MessageProvider = ({children}) => {
-    const [message, setMessage] = useState({type: '', text: ''});
+export const MessageProvider = ({ children }) => {
+    const [message, setMessage] = useState({ type: '', text: '' });
 
     useEffect(() => {
         let timer;
@@ -27,11 +27,11 @@ export const MessageProvider = ({children}) => {
     };
 
     const hideMessage = () => {
-        setMessage({ type: '', text: ''});
+        setMessage({ type: '', text: '' });
     };
 
     return (
-        <MessageContext.Provider value={{message, showMessage, hideMessage}}>
+        <MessageContext.Provider value={{ message, showMessage, hideMessage }}>
             {children}
         </MessageContext.Provider>
     )

@@ -1,24 +1,26 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 .recipe-detail-container {
-    @include container-style; 
+    @include container-style;
     width: 90%;
     max-width: $max-container-width;
-    margin: auto; 
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .detail-content {
-        width: 100%; 
+        width: 100%;
         display: grid;
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: $spacing-unit;
 
-        &__title, &__image-container, &__metadata {
-            grid-column: 1 / -1; 
+        &__title,
+        &__image-container,
+        &__metadata {
+            grid-column: 1 / -1;
         }
-        
+
         &__title {
             @include text-style($font-size-large);
             margin-bottom: $spacing-small;
@@ -29,14 +31,13 @@
             height: auto;
             margin-bottom: $spacing-unit;
             border-radius: $border-radius-large;
-
         }
 
-        &__instruction, &__ingredients {
+        &__instruction,
+        &__ingredients {
             @include text-style($font-size-normal);
             margin-bottom: $spacing-unit;
         }
-
     }
 
     .favorite-button {
@@ -48,9 +49,9 @@
         margin-top: $spacing-large;
     }
 
-    @include respond-to('phone') {
+    @include respond-to("phone") {
         .detail-content {
-            grid-template-columns: 1fr; 
+            grid-template-columns: 1fr;
         }
 
         .detail-content__image {
@@ -58,4 +59,3 @@
         }
     }
 }
-

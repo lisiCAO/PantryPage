@@ -2,10 +2,10 @@ import React from 'react';
 import './FavoriteButton.scss';
 
 const FavoriteButton = ({ isFavorited, onToggle }) => (
-    <button 
+    <button
         className={`favorite-button ${isFavorited ? 'favorite-button--favorited' : ''}`}
         onClick={onToggle}>
-        {isFavorited ? '💗 Favorite' : '🤍 Favorite'} 
+        {isFavorited ? '💗 Favorite' : '🤍 Favorite'}
     </button>
 );
 

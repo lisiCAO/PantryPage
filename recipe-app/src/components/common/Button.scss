@@ -1,9 +1,9 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .button {
-  @include button-style($primary-color, white); 
-  margin: $spacing-small; 
+  @include button-style($primary-color, white);
+  margin: $spacing-small;
   font-size: $font-size-normal;
   text-transform: uppercase;
   font-weight: bold;
@@ -16,7 +16,10 @@
     @include button-style($error-color, white);
   }
 
-  &--edit, &--view, &--login, &--sign-in {
+  &--edit,
+  &--view,
+  &--login,
+  &--sign-in {
     @include button-style(lighten($primary-color, 20%), white);
   }
 

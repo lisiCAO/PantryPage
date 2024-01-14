@@ -1,10 +1,10 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 .detail-content__image-container {
-    max-width: 100%; 
-    height: auto; 
+    max-width: 100%;
+    height: auto;
     border-radius: $border-radius-large;
-    margin-right: $spacing-small; 
+    margin-right: $spacing-small;
     display: flex;
     justify-content: center;
 }
@@ -12,14 +12,21 @@
 .detail-content__image {
     width: 70%;
     height: auto;
-    border-radius: $border-radius; // square
+    border-radius: $border-radius; // Square
 
+    // Size
+    &--small {
+        width: 50%;
+    }
+    &--large {
+        width: 100%;
+    }
 
-    // size
-    &--small { width: 50%; }
-    &--large { width: 100%; }
-
-    // shape
-    &--circle { border-radius: 50%; }
-    &--square { border-radius: $border-radius; }
+    // Shape
+    &--circle {
+        border-radius: 50%;
+    }
+    &--square {
+        border-radius: $border-radius;
+    }
 }

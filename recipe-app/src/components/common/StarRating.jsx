@@ -6,7 +6,7 @@ const StarRating = ({ totalStars = 5, initialRating = 0, onRatingChange }) => {
 
   const handleRating = (newRating) => {
     setRating(newRating);
-    if(onRatingChange) {
+    if (onRatingChange) {
       onRatingChange(newRating);
     }
   };

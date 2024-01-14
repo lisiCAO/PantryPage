@@ -1,10 +1,10 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .custom-form {
   @include container-style;
   padding: $spacing-medium;
-  background-color: $background-color-light; 
+  background-color: $background-color-light;
   border-radius: $border-radius;
 
   &__field {
@@ -26,8 +26,7 @@
   }
 
   // Responsive
-  @include respond-to('tablet') {
+  @include respond-to("tablet") {
     padding: $spacing-small;
   }
 }
-    

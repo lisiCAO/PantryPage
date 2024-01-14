@@ -1,18 +1,18 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .search-bar {
-  // 搜索栏的基本样式
+  // Basic
   display: flex;
   align-items: center;
   margin-bottom: $spacing-medium;
 
   &__input {
-    // 搜索输入框的样式
-    flex: 1; // 占据全部可用空间
+    // search input basic style
+    flex: 1; // occupy the whole part
     padding: $spacing-small;
     border: 1px solid $primary-color;
-    border-radius: $border-radius; // 如果有定义边框半径的变量
+    border-radius: $border-radius;
     outline: none;
 
     &:focus {
@@ -20,4 +20,3 @@
     }
   }
 }
-

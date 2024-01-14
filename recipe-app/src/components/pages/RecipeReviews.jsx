@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef, useContext} from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import CustomForm from '../common/CustomForm';
 import ApiService from '../../services/ApiService';
 import { UserContext } from '../../contexts/UserContext';
 import { MessageContext } from '../../contexts/MessageContext';
 import './RecipeReviews.scss';
+
 const RecipeReviews = ({ recipeId }) => {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -20,7 +21,7 @@ const RecipeReviews = ({ recipeId }) => {
             setLoading(false);
         };
         fetchReviews();
-    },[recipeId, page]);
+    }, [recipeId, page]);
 
     const handleObserver = (entities) => {
         const target = entities[0];
@@ -50,20 +51,20 @@ const RecipeReviews = ({ recipeId }) => {
                 observer.unobserve(currentLoader);
             }
         };
-    },[]);
+    }, []);
 
     const reviewFormConfig = [
         {
-        name: 'rating',
-        type: 'number',
-        label: 'Rating',
+            name: 'rating',
+            type: 'number',
+            label: 'Rating',
         },
-      {
-        name: 'comment',
-        type: 'textarea',
-        label: 'Your Review',
-        placeholder: 'Write your review here...',
-      },
+        {
+            name: 'comment',
+            type: 'textarea',
+            label: 'Your Review',
+            placeholder: 'Write your review here...',
+        },
     ];
 
     const handleSubmitReview = (reviewData) => {
@@ -81,7 +82,7 @@ const RecipeReviews = ({ recipeId }) => {
         console.log('Review submitted successfully!');
         // Additional logic after successful submission, if needed
     };
-   return (
+    return (
         <div className="reviews">
             <CustomForm
                 config={reviewFormConfig}

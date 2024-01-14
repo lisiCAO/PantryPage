@@ -1,28 +1,30 @@
-@import './../../assets/styles/variables';
-@import './../../assets/styles/mixins';
+@import "./../../assets/styles/variables";
+@import "./../../assets/styles/mixins";
 
 .sidebar {
-    background-color: $primary-color; 
+    background-color: $primary-color;
     color: white;
     width: 200px;
     height: 100vh;
-    padding-top: $spacing-medium; 
+    padding-top: $spacing-medium;
 
     &__menu {
         list-style-type: none;
         padding: 0;
 
         &__item {
-            padding: $spacing-small $spacing-medium; 
+            padding: $spacing-small $spacing-medium;
             cursor: pointer;
             border-left: 3px solid transparent;
-            transition: background-color 0.3s, border-left 0.3s;
+            transition:
+                background-color 0.3s,
+                border-left 0.3s;
 
-            &:hover, &--active {
-                background-color: lighten($primary-color, 10%); 
-                border-left-color: $secondary-color; 
+            &:hover,
+            &--active {
+                background-color: lighten($primary-color, 10%);
+                border-left-color: $secondary-color;
             }
         }
     }
 }
-

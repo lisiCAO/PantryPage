@@ -1,7 +1,7 @@
 import React from 'react';
 import './Sidebar.scss';
 
-const Sidebar = ({ setActiveTab, category}) => {
+const Sidebar = ({ setActiveTab, category }) => {
     const renderMenuItems = () => {
         if (category === "admin") {
             return (

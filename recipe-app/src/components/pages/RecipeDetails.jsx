@@ -13,7 +13,7 @@ const RecipeDetail = ({ recipe, onToggleFavorite }) => {
         instructions: 'stepInstruction',
         createdBy: 'createdBy',
         updatedAt: 'updatedAt',
-        ignoreFields: ['id', 'isFavorited','createdAt', 'ingredients']
+        ignoreFields: ['id', 'isFavorited', 'createdAt', 'ingredients']
     };
 
     const { message } = useContext(MessageContext);
@@ -22,9 +22,9 @@ const RecipeDetail = ({ recipe, onToggleFavorite }) => {
         <div className="recipe-detail-container">
             <DetailContent data={recipe} config={config} />
             <IngredientsComponent ingredients={recipe.ingredients} />
-            <FavoriteButton 
-                isFavorited={recipe.isFavorited} 
-                onToggle={() => onToggleFavorite(recipe.id)} 
+            <FavoriteButton
+                isFavorited={recipe.isFavorited}
+                onToggle={() => onToggleFavorite(recipe.id)}
             />
             <Message message={message} />
             <RecipeReviews recipeId={recipe.id} />

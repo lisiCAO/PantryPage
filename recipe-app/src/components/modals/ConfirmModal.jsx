@@ -1,7 +1,7 @@
 import React from 'react';
-import Modal from './Modal'; 
+import Modal from './Modal';
 import Button from './../common/Button';
-import './ConfirmModal.scss'; 
+import './ConfirmModal.scss';
 
 const ConfirmModal = ({ isOpen, title, message, onConfirm, onCancel }) => {
     return (

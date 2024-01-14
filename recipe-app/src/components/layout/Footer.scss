@@ -1,5 +1,5 @@
-@import './../../assets/styles/variables.scss';
-@import './../../assets/styles/mixins.scss';
+@import "./../../assets/styles/variables.scss";
+@import "./../../assets/styles/mixins.scss";
 .footer {
     display: flex;
     align-items: center;
@@ -8,8 +8,7 @@
     bottom: 0;
     text-align: center;
     width: 100%;
-    background-color: $primary-color; // use variable
+    background-color: $primary-color;
     color: white;
-    padding: $spacing-small $spacing-medium; // use variable
-
+    padding: $spacing-small $spacing-medium;
 }

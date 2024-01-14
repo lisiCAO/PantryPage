@@ -6,12 +6,14 @@ const InstructionComponent = ({ value }) => {
         item !== '' && <p key={index}>{item}</p>
     ));
     return (
-    <div className="detail-content__instruction">
-        <div className="instruction-title"><strong>Instructions:</strong></div>
-        <div className="instruction-content">
-            {instructions}
+        <div className="detail-content__instruction">
+            <div className="instruction-title">
+                <strong>Instructions:</strong>
+            </div>
+            <div className="instruction-content">
+                {instructions}
+            </div>
         </div>
-    </div>
     );
 };
 
