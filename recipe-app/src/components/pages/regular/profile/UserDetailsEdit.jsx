@@ -6,6 +6,13 @@ import Button from '../../../common/Button';
 import './UserDetailsEdit.scss';
 
 const UserDetailsEdit = ({ setIsEditing, user, onSubmit }) => {
+
+    const filteredConfig = userConfig.filter(field => {
+        if (field.name === 'category') {
+            return user && user.category == 'admin'; // only show category field to admin users
+        }
+        return true;
+    });
     const { message, hideMessage } = useContext(MessageContext);
     const handleFormSubmissionSuccess = () => {
         if (message){
@@ -20,7 +27,7 @@ const UserDetailsEdit = ({ setIsEditing, user, onSubmit }) => {
     return (
         <div className="user-details-edit">
             <CustomForm
-                config={userConfig}
+                config={filteredConfig}
                 initialData={user}
                 onSubmit={onSubmit}
                 mode="edit"

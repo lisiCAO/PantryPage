@@ -41,16 +41,28 @@ const userConfig = [
             { value: 'deleted', name: 'Deleted'},
         ],
         mapTo: 'category', // Maps to 'stepInstruction' in initialData
-        shouldRender: (userData) => {
-            // 根据 userData 来决定是否渲染这个字段
-            return userData && userData.category !== 'user';
-        }
+        // shouldRender: (userData) => {
+        //     // Only render this field if the user is an admin
+        //     return userData && userData.category !== 'user';
+        // }
     },
     {
         name: 'password',
         label: 'Password',
         type: 'password',
         mapTo: 'password' // Maps to 'stepInstruction' in initialData
+    },
+    {
+        name: 'bio',
+        label: 'Bio',
+        type: 'textarea',
+        mapTo: 'bio', // Maps to 'stepInstruction' in initialData
+    },
+    {
+        name: 'location',
+        label: 'Location',
+        type: 'text',
+        mapTo: 'location', // Maps to 'stepInstruction' in initialData
     }
     // Additional fields can be added as required
 ];
