@@ -27,6 +27,7 @@ Route::post('/refresh-token', [AuthController::class, 'refreshToken'])->middlewa
 
 Route::apiResource('recipes', RecipeController::class)->only(['index', 'show']);
 Route::apiResource('reviews', ReviewController::class)->only(['index', 'show']);
+Route::apiResource('users', UserController::class)->only(['store']);
 Route::get('/recipes/{recipeId}/reviews', [ReviewController::class, 'showByRecipe']);
 
 Route::middleware(['parse.jwt', 'jwt.auth','user'])->group(function () {
@@ -44,7 +45,7 @@ Route::middleware(['parse.jwt', 'jwt.auth','user'])->group(function () {
 
 
     // Tables
-    Route::apiResource('users', UserController::class);
+    Route::apiResource('users', UserController::class)->except(['store']);
     Route::apiResource('ingredients', IngredientController::class);
     Route::apiResource('recipes', RecipeController::class)->except(['index', 'show']);
     Route::apiResource('reviews', ReviewController::class)->except(['index', 'show']);

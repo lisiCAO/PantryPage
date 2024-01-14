@@ -35,7 +35,6 @@ const Users = () => {
             }
         })
         .catch(error => {
-            console.error(error);
             // showMessage('error', 'Unable to fetch recipes.');
             setUsers([]);
         });

@@ -12,9 +12,8 @@ import CreateUserModal from './components/modals/users/CreateUserModal';
 
 function App() {
 
-  const { currentPage, navigateTo, user, isLoggedIn, showLoginModal, showCreateAccount,setshowCreateAccount, setShowLoginModal, handleLogin, handleLogout, handleOpenCreateAccount, setshowCreateAccount } = useContext(UserContext);
+  const { currentPage, navigateTo, user, isLoggedIn, showLoginModal, showCreateAccount, setShowLoginModal, setShowCreateAccount, handleLogin, handleLogout, handleOpenCreateAccount, handleCreate } = useContext(UserContext);
   const { hideMessage } = useContext(MessageContext);
-  const { handleCreate } = useContext(UserContext);
   return (
       <div> 
         {/* render based on contion */}
@@ -44,7 +43,7 @@ function App() {
          <CreateUserModal 
                     isOpen={showCreateAccount} 
                     onClose={() => {                        
-                        setshowCreateAccount(false);
+                        setShowCreateAccount(false);
                         hideMessage();
                     }} 
                     onCreate={handleCreate}
