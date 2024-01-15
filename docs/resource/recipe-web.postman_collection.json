@@ -1,0 +1,3375 @@
+{
+	"info": {
+		"_postman_id": "71fe8fc7-574d-4aab-a63c-2d2c86965054",
+		"name": "recipe-web",
+		"description": "This is a Recipe Web API documantation.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31315195"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "logout",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "credenti",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"alice@email.com\",\n    \"password\": \"password\"\n}\n\n"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "credenti",
+										"value": "",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"alice@email.com\",\n    \"password\": \"password\"\n}\n\n"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:47:48 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:47:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAyNzYzMjY4LCJleHAiOjE3MDI3NjY4NjgsIm5iZiI6MTcwMjc2MzI2OCwianRpIjoiNGNpdXNnVm5senlwZnltYyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.6IGPDD3tWrBQZffdDZPz4mSRER4trofs_hndHZAYXQw; expires=Sat, 16 Dec 2023 22:47:48 GMT; Max-Age=3600; path=/; httponly; samesite=lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token_type\": \"bearer\",\n    \"expires_in\": 3600,\n    \"data\": {\n        \"user_id\": 1,\n        \"first_name\": \"Alice\",\n        \"last_name\": \"M\",\n        \"email\": \"alice@email.com\",\n        \"profile_image_path\": \"/path/to/image1.jpg\",\n        \"category\": \"admin\",\n        \"created_at\": \"2023-12-16 07:06:40\",\n        \"updated_at\": \"2023-12-16 07:06:40\"\n    },\n    \"message\": \"Login successful\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "credenti",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"alice@email.com\",\n    \"password\": \"password\"\n}\n\n"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "- Send request with \"email\" and \"password\"\n    \n- Get a json response with token in cookie"
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "credenti",
+										"value": "",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"alice@email.com\",\n    \"password\": \"password\"\n}\n\n"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:47:48 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:47:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAyNzYzMjY4LCJleHAiOjE3MDI3NjY4NjgsIm5iZiI6MTcwMjc2MzI2OCwianRpIjoiNGNpdXNnVm5senlwZnltYyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.6IGPDD3tWrBQZffdDZPz4mSRER4trofs_hndHZAYXQw; expires=Sat, 16 Dec 2023 22:47:48 GMT; Max-Age=3600; path=/; httponly; samesite=lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token_type\": \"bearer\",\n    \"expires_in\": 3600,\n    \"data\": {\n        \"user_id\": 1,\n        \"first_name\": \"Alice\",\n        \"last_name\": \"M\",\n        \"email\": \"alice@email.com\",\n        \"profile_image_path\": \"/path/to/image1.jpg\",\n        \"category\": \"admin\",\n        \"created_at\": \"2023-12-16 07:06:40\",\n        \"updated_at\": \"2023-12-16 07:06:40\"\n    },\n    \"message\": \"Login successful\"\n}"
+						}
+					]
+				},
+				{
+					"name": "loginWithUser",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "credenti",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bob@email.com\",\n    \"password\": \"password\"\n}\n\n"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "credenti",
+										"value": "",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"alice@email.com\",\n    \"password\": \"password\"\n}\n\n"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:47:48 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:47:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAyNzYzMjY4LCJleHAiOjE3MDI3NjY4NjgsIm5iZiI6MTcwMjc2MzI2OCwianRpIjoiNGNpdXNnVm5senlwZnltYyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.6IGPDD3tWrBQZffdDZPz4mSRER4trofs_hndHZAYXQw; expires=Sat, 16 Dec 2023 22:47:48 GMT; Max-Age=3600; path=/; httponly; samesite=lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token_type\": \"bearer\",\n    \"expires_in\": 3600,\n    \"data\": {\n        \"user_id\": 1,\n        \"first_name\": \"Alice\",\n        \"last_name\": \"M\",\n        \"email\": \"alice@email.com\",\n        \"profile_image_path\": \"/path/to/image1.jpg\",\n        \"category\": \"admin\",\n        \"created_at\": \"2023-12-16 07:06:40\",\n        \"updated_at\": \"2023-12-16 07:06:40\"\n    },\n    \"message\": \"Login successful\"\n}"
+						}
+					]
+				},
+				{
+					"name": "refresh-token",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "credenti",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"alice@email.com\",\n    \"password\": \"password\"\n}\n\n"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/refresh-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"refresh-token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "credenti",
+										"value": "",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"alice@email.com\",\n    \"password\": \"password\"\n}\n\n"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:47:48 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:47:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAyNzYzMjY4LCJleHAiOjE3MDI3NjY4NjgsIm5iZiI6MTcwMjc2MzI2OCwianRpIjoiNGNpdXNnVm5senlwZnltYyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.6IGPDD3tWrBQZffdDZPz4mSRER4trofs_hndHZAYXQw; expires=Sat, 16 Dec 2023 22:47:48 GMT; Max-Age=3600; path=/; httponly; samesite=lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token_type\": \"bearer\",\n    \"expires_in\": 3600,\n    \"data\": {\n        \"user_id\": 1,\n        \"first_name\": \"Alice\",\n        \"last_name\": \"M\",\n        \"email\": \"alice@email.com\",\n        \"profile_image_path\": \"/path/to/image1.jpg\",\n        \"category\": \"admin\",\n        \"created_at\": \"2023-12-16 07:06:40\",\n        \"updated_at\": \"2023-12-16 07:06:40\"\n    },\n    \"message\": \"Login successful\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Recipes",
+			"item": [
+				{
+					"name": "recipeById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/recipes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes",
+								"1"
+							]
+						},
+						"description": "- Get json response of recipe by ID"
+					},
+					"response": [
+						{
+							"name": "recipeById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/recipes/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"recipes",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:48:05 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:48:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Tomato Soup\",\n        \"imagePath\": \"/storage/img/1702713759_white_sugar.png\",\n        \"cookingTime\": 35,\n        \"stepInstruction\": \"Step-by-step instructions for Tomato Soup.\",\n        \"createdAt\": \"2023-12-16 07:06:40\",\n        \"updatedAt\": \"2023-12-16 15:58:28\",\n        \"createdBy\": \"Alice M\"\n    },\n    \"message\": \"Recipe fetched by ID successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getRecipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/recipes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes"
+							]
+						},
+						"description": "- Get a list of recipes"
+					},
+					"response": [
+						{
+							"name": "getRecipes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/recipes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"recipes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:48:10 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:48:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Tomato Soup\",\n            \"createdAt\": \"2023-12-16 07:06:40\",\n            \"updatedAt\": \"2023-12-16 15:58:28\",\n            \"createdBy\": \"Alice M\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Potato Salad\",\n            \"createdAt\": \"2023-12-16 07:06:40\",\n            \"updatedAt\": \"2023-12-16 07:06:40\",\n            \"createdBy\": \"Bob T\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Onion Pie\",\n            \"createdAt\": \"2023-12-16 07:06:40\",\n            \"updatedAt\": \"2023-12-16 07:06:40\",\n            \"createdBy\": \"Charlie C\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"test recipe\",\n            \"createdAt\": \"2023-12-16 21:31:52\",\n            \"updatedAt\": \"2023-12-16 21:31:52\",\n            \"createdBy\": \"Alice M\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"test recipe\",\n            \"createdAt\": \"2023-12-16 21:46:04\",\n            \"updatedAt\": \"2023-12-16 21:46:04\",\n            \"createdBy\": \"Alice M\"\n        },\n        {\n            \"id\": 8,\n            \"name\": \"test recipe\",\n            \"createdAt\": \"2023-12-16 21:46:34\",\n            \"updatedAt\": \"2023-12-16 21:46:34\",\n            \"createdBy\": \"Alice M\"\n        }\n    ],\n    \"message\": \"Recipes fetched successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createRecipe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipe_name\": \"test recipe\",\n    \"cooking_time\": 35,\n    \"step_instruction\": \"Step-by-step instructions for Tomato Soup.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/recipes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes"
+							]
+						},
+						"description": "- create a new recipe"
+					},
+					"response": [
+						{
+							"name": "createRecipe",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"recipe_name\": \"test recipe\",\n    \"cooking_time\": 35,\n    \"step_instruction\": \"Step-by-step instructions for Tomato Soup.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/recipes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"recipes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:48:15 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:48:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 9,\n        \"name\": \"test recipe\",\n        \"imagePath\": null,\n        \"cookingTime\": 35,\n        \"stepInstruction\": \"Step-by-step instructions for Tomato Soup.\",\n        \"createdAt\": \"2023-12-16 21:48:15\",\n        \"updatedAt\": \"2023-12-16 21:48:15\",\n        \"createdBy\": \"Alice M\"\n    },\n    \"message\": \"Recipe created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "updateRecipe",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipe_name\": \"test recipe\",\n    \"cooking_time\": 32,\n    \"step_instruction\": \"Step-by-step instructions for Tomato Soup.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/recipes/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes",
+								"{{id}}"
+							]
+						},
+						"description": "- send json request to update recipe\n    \n- Get a json response to confirm"
+					},
+					"response": [
+						{
+							"name": "updateRecipe",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 9,\n    \"recipe_name\": \"test recipe\",\n    \"cooking_time\": 32,\n    \"step_instruction\": \"Step-by-step instructions for Tomato Soup.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/recipes/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"recipes",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:51:10 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:51:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 9,\n        \"name\": \"test recipe\",\n        \"imagePath\": null,\n        \"cookingTime\": 32,\n        \"stepInstruction\": \"Step-by-step instructions for Tomato Soup.\",\n        \"createdAt\": \"2023-12-16 21:48:15\",\n        \"updatedAt\": \"2023-12-16 21:51:10\",\n        \"createdBy\": \"Alice M\"\n    },\n    \"message\": \"Recipe updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteRecipe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"recipe_name\": \"test recipe\",\n        \"cooking_time\": 32,\n        \"step_instruction\": \"Step-by-step instructions for Tomato Soup.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/recipes/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes",
+								"{{id}}"
+							]
+						},
+						"description": "- Delete recipe by Id\n    \n- Get json response"
+					},
+					"response": [
+						{
+							"name": "deleteRecipe",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"recipe_name\": \"test recipe\",\n        \"cooking_time\": 32,\n        \"step_instruction\": \"Step-by-step instructions for Tomato Soup.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/recipes/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"recipes",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:51:21 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:51:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": null,\n    \"message\": \"Recipe deleted successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "userRecipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseApi}}/user/recipes",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"user",
+								"recipes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RecipesByUser",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseApi}}/user/recipes",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"user",
+										"recipes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:14:15 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:14:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Tomato Soup\",\n            \"createdAt\": \"2023-12-25 05:28:56\",\n            \"updatedAt\": \"2023-12-25 05:28:56\",\n            \"createdBy\": \"Alice M\"\n        }\n    ],\n    \"message\": \"Recipes fetched by user ID successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "UserProfile",
+			"item": [
+				{
+					"name": "currentUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "currentUser",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 04:51:56 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 04:51:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"firstName\": \"Alice\",\n        \"lastName\": \"M\",\n        \"name\": \"Alice M\",\n        \"email\": \"alice@email.com\",\n        \"imagePath\": \"/path/to/image1.jpg\",\n        \"category\": \"admin\",\n        \"createdAt\": \"2023-12-25 05:28:55\",\n        \"updatedAt\": \"2023-12-25 05:28:55\"\n    },\n    \"message\": \"User retrieved successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "recipeByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/user/recipes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"recipes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "recipeByUser",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/user/recipes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"recipes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 00:17:26 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 00:17:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Tomato Soup\",\n            \"createdAt\": \"2023-12-25 05:28:56\",\n            \"updatedAt\": \"2023-12-25 05:28:56\",\n            \"createdBy\": \"Alice M\"\n        }\n    ],\n    \"message\": \"Recipes fetched by user ID successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "reviewByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/user/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "recipeByUser",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/user/recipes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"recipes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 00:17:26 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 00:17:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Tomato Soup\",\n            \"createdAt\": \"2023-12-25 05:28:56\",\n            \"updatedAt\": \"2023-12-25 05:28:56\",\n            \"createdBy\": \"Alice M\"\n        }\n    ],\n    \"message\": \"Recipes fetched by user ID successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ingredients",
+			"item": [
+				{
+					"name": "Ingredients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseApi}}/ingredients",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"ingredients"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getIngredients",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/ingredients",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"ingredients"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 17:54:04 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 17:54:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Tomato\",\n            \"createdAt\": \"2023-12-25 05:28:56\",\n            \"updatedAt\": \"2023-12-25 05:28:56\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Potato\",\n            \"createdAt\": \"2023-12-25 05:28:56\",\n            \"updatedAt\": \"2023-12-25 05:28:56\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Onion\",\n            \"createdAt\": \"2023-12-25 05:28:56\",\n            \"updatedAt\": \"2023-12-25 05:28:56\"\n        }\n    ],\n    \"message\": \"Ingredients fetched successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "IngredientsById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseApi}}/ingredients/1",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"ingredients",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getIngredientsById",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/ingredients/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"ingredients",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 17:53:25 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 17:53:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Tomato\",\n        \"imagePath\": \"/path/to/tomato.jpg\",\n        \"description\": \"A red juicy fruit used in cooking.\",\n        \"createdAt\": \"2023-12-25 05:28:56\",\n        \"updatedAt\": \"2023-12-25 05:28:56\"\n    },\n    \"message\": \"Ingredient fetched by ID successfully\"\n}"
+						},
+						{
+							"name": "getIngredientsById",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\n            \"name\": \"pepper\",\n            \"description\" : \"dadffda\"\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/ingredients/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"ingredients",
+										"4"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 17:57:28 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 17:57:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Unauthorized\"\n}"
+						}
+					]
+				},
+				{
+					"name": "updateIngredient",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\n            \"name\": \"pepper\",\n            \"description\" : \"dadffda\"\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseApi}}/ingredients/4",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"ingredients",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "updateIngredient",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\n            \"name\": \"pepper\",\n            \"description\" : \"dadffda\"\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/ingredients/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"ingredients",
+										"4"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 17:57:28 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 17:57:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Unauthorized\"\n}"
+						}
+					]
+				},
+				{
+					"name": "newIngredient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"piment\",\n    \"description\" : \"dadffda\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseApi}}/ingredients",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"ingredients"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "NewIngredient",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"piment\",\n    \"description\" : \"dadffda\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseApi}}/ingredients",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"ingredients"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:17:22 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:17:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 5,\n        \"name\": \"piment\",\n        \"imagePath\": null,\n        \"description\": \"dadffda\",\n        \"createdAt\": \"2023-12-26 19:17:22\",\n        \"updatedAt\": \"2023-12-26 19:17:22\"\n    },\n    \"message\": \"Ingredient created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ingredient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseApi}}/ingredients/5",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"ingredients",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DeleteIngredient5",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseApi}}/ingredients/5",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"ingredients",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:18:58 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:18:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": null,\n    \"message\": \"Ingredient deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseApi}}/reviews",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "reviews",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/reviews",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"reviews"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 18:54:12 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 18:54:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"recipeName\": \"Tomato Soup\",\n            \"userName\": \"Alice M\",\n            \"createdAt\": \"2023-12-25 05:28:56\"\n        },\n        {\n            \"id\": 2,\n            \"recipeName\": \"Tomato Soup\",\n            \"userName\": \"Bob T\",\n            \"createdAt\": \"2023-12-25 05:28:56\"\n        },\n        {\n            \"id\": 3,\n            \"recipeName\": \"Tomato Soup\",\n            \"userName\": \"Charlie C\",\n            \"createdAt\": \"2023-12-25 05:28:56\"\n        }\n    ],\n    \"message\": \"Reviews fetched successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "reviewsById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "reviewsById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseApi}}/reviews/1",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"reviews",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:05:10 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:05:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"recipeName\": \"Tomato Soup\",\n        \"userName\": \"Alice M\",\n        \"comment\": \"Great taste!\",\n        \"rating\": \"4.50\",\n        \"createdAt\": \"2023-12-25 05:28:56\"\n    },\n    \"message\": \"Review fetched successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "newReviews",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"comment\": \"Great taste!\",\n        \"rating\": \"4.50\",\n        \"recipe_name\" : \"Onion Pie\",\n        \"user_name\" : \"Alice M\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseApi}}/reviews",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OnionPieReivew",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"comment\": \"Great taste!\",\n        \"rating\": \"4.50\",\n        \"recipe_name\" : \"Onion Pie\",\n        \"user_name\" : \"Alice M\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseApi}}/reviews",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"reviews"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:07:48 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:07:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 4,\n        \"recipeName\": \"Onion Pie\",\n        \"userName\": \"Alice M\",\n        \"comment\": \"Great taste!\",\n        \"rating\": \"4.50\",\n        \"createdAt\": \"2023-12-26 19:07:48\"\n    },\n    \"message\": \"Review created successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "updateReview",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comment\": \"pas pire\",\n    \"rating\": \"4.50\",\n    \"recipe_name\" : \"Onion Pie\",\n    \"user_name\" : \"Alice M\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseApi}}/reviews/4",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"reviews",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "updateOnionReview",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"comment\": \"pas pire\",\n    \"rating\": \"4.50\",\n    \"recipe_name\" : \"Onion Pie\",\n    \"user_name\" : \"Alice M\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseApi}}/reviews/4",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"reviews",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:09:59 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:09:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"review_id\": 4,\n        \"recipe_id\": 3,\n        \"comment\": \"pas pire\",\n        \"rating\": \"4.50\",\n        \"user_id\": 1,\n        \"created_at\": \"2023-12-26 19:07:48\",\n        \"updated_at\": \"2023-12-26 19:09:59\"\n    },\n    \"message\": \"Review updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "review",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "deleteReview",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseApi}}/reviews/4",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"reviews",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:11:20 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:11:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": null,\n    \"message\": \"Review deleted successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "userReviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseApi}}/user/reviews",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"user",
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ReviewsByUser1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseApi}}/user/reviews",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"user",
+										"reviews"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:15:06 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:15:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"recipeName\": \"Tomato Soup\",\n            \"userName\": \"Alice M\",\n            \"createdAt\": \"2023-12-25 05:28:56\"\n        }\n    ],\n    \"message\": \"Reviews fetched successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "reviewByRecipeid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseApi}}/recipes/1/reviews",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"recipes",
+								"1",
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "reviewByRecipeid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseApi}}/recipes/1/reviews",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"recipes",
+										"1",
+										"reviews"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 04:30:08 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 04:30:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "48"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"recipeName\": \"Tomato Soup\",\n            \"userName\": \"Alice M\",\n            \"comment\": \"Great taste!\",\n            \"rating\": \"4.50\",\n            \"location\": \"London, UK\",\n            \"createdAt\": \"2023-12-30 15:32:42\"\n        },\n        {\n            \"id\": 2,\n            \"recipeName\": \"Tomato Soup\",\n            \"userName\": \"Bob T\",\n            \"comment\": \"Loved it, but a bit salty.\",\n            \"rating\": \"4.00\",\n            \"location\": \"Paris, France\",\n            \"createdAt\": \"2023-12-30 15:32:42\"\n        },\n        {\n            \"id\": 3,\n            \"recipeName\": \"Tomato Soup\",\n            \"userName\": \"Charlie C\",\n            \"comment\": \"Perfect for dinner.\",\n            \"rating\": \"5.00\",\n            \"location\": \"New York, USA\",\n            \"createdAt\": \"2023-12-30 15:32:42\"\n        }\n    ],\n    \"message\": \"Reviews fetched successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "addReviewByRecipe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comment\": \"very delicious!!!\",\n    \"rating\" : 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseApi}}/recipes/1/reviews",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"recipes",
+								"1",
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "reviewByRecipeId",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"comment\": \"very delicious!!!\",\n    \"rating\" : 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseApi}}/recipes/1/reviews",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"recipes",
+										"1",
+										"reviews"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 04:58:29 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 04:58:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 5,\n        \"recipeName\": \"Tomato Soup\",\n        \"userName\": \"Alice M\",\n        \"comment\": \"very delicious!!!\",\n        \"rating\": 2,\n        \"location\": \"London, UK\",\n        \"createdAt\": \"2024-01-01 04:58:29\"\n    },\n    \"message\": \"Review created successfully.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Utils",
+			"item": [
+				{
+					"name": "uploadFile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ee9c5a5-b864-4560-b37f-24289500f484"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"upload"
+							]
+						},
+						"description": "- send files via form-data\n    \n- Get link by json response"
+					},
+					"response": [
+						{
+							"name": "uploadFile",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ee9c5a5-b864-4560-b37f-24289500f484"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/upload",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"upload"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:51:34 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:51:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": \"/storage/img/1702763494_brown_potato.png\",\n    \"message\": \"File uploaded successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseApi}}/dashboard",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"dashboard"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "dashboard",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseApi}}/dashboard",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"dashboard"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:20:17 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:20:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"userStats\": {\n            \"totalUsers\": 3,\n            \"newUsers\": 3\n        },\n        \"recipeStats\": {\n            \"totalRecipes\": 3,\n            \"mostPopularRecipe\": {\n                \"recipe_id\": 1,\n                \"recipe_name\": \"Tomato Soup\",\n                \"user_id\": 1,\n                \"cooking_time\": 30,\n                \"step_instruction\": \"Step-by-step instructions for Tomato Soup.\",\n                \"description\": \"A delicious tomato soup.\",\n                \"recipe_image_path\": \"/path/to/tomato_soup.jpg\",\n                \"created_at\": \"2023-12-25 05:28:56\",\n                \"updated_at\": \"2023-12-25 05:28:56\",\n                \"reviews_count\": 3\n            }\n        },\n        \"ingredientStats\": {\n            \"totalIngredients\": 4,\n            \"mostUsedIngredient\": {\n                \"ingredient_id\": 1,\n                \"name\": \"Tomato\",\n                \"img_path\": \"/path/to/tomato.jpg\",\n                \"description\": \"A red juicy fruit used in cooking.\",\n                \"created_at\": \"2023-12-25 05:28:56\",\n                \"updated_at\": \"2023-12-25 05:28:56\",\n                \"recipes_count\": 1\n            }\n        },\n        \"reviewStats\": {\n            \"totalReviews\": 3,\n            \"recentReviews\": [\n                {\n                    \"id\": 1,\n                    \"recipeName\": \"Tomato Soup\",\n                    \"userName\": \"Alice M\",\n                    \"comment\": \"Great taste!\",\n                    \"rating\": \"4.50\",\n                    \"createdAt\": \"2023-12-25 05:28:56\"\n                },\n                {\n                    \"id\": 2,\n                    \"recipeName\": \"Tomato Soup\",\n                    \"userName\": \"Bob T\",\n                    \"comment\": \"Loved it, but a bit salty.\",\n                    \"rating\": \"4.00\",\n                    \"createdAt\": \"2023-12-25 05:28:56\"\n                },\n                {\n                    \"id\": 3,\n                    \"recipeName\": \"Tomato Soup\",\n                    \"userName\": \"Charlie C\",\n                    \"comment\": \"Perfect for dinner.\",\n                    \"rating\": \"5.00\",\n                    \"createdAt\": \"2023-12-25 05:28:56\"\n                }\n            ]\n        }\n    },\n    \"message\": \"Dashboard data retrieved successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Favorites",
+			"item": [
+				{
+					"name": "listFavorites",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/user/favorites",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"favorites"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ListOfFavorites",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/user/favorites",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"favorites"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:01:54 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 19:01:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"Alice M\"\n            },\n            \"recipe\": {\n                \"id\": 1,\n                \"name\": \"Tomato Soup\",\n                \"description\": \"A delicious tomato soup.\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"Alice M\"\n            },\n            \"recipe\": {\n                \"id\": 2,\n                \"name\": \"Potato Salad\",\n                \"description\": \"A creamy potato salad.\"\n            }\n        }\n    ],\n    \"message\": \"Favorites fetched successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "addfavorites",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipe_id\": 2\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/user/favorites",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"favorites"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "addfavorites",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"recipe_id\": 2\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/user/favorites",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"favorites"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 17:12:33 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 17:12:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": null,\n        \"user\": {\n            \"id\": 2,\n            \"name\": \"Bob T\"\n        },\n        \"recipe\": {\n            \"id\": 2,\n            \"name\": \"Potato Salad\",\n            \"description\": \"A creamy potato salad.\"\n        }\n    },\n    \"message\": \"Recipe added to favorites successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "favoritesByRecipeId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseApi}}/user/favorites/1",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"user",
+								"favorites",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "favoritesById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseApi}}/user/favorites/3",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"user",
+										"favorites",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 31 Dec 2023 23:07:31 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 31 Dec 2023 23:07:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 3,\n        \"recipeId\": 3,\n        \"name\": \"Onion Pie\",\n        \"imagePath\": \"/path/to/onion_pie.jpg\",\n        \"cookingTime\": 45,\n        \"stepInstruction\": \"Step-by-step instructions for Onion Pie.\",\n        \"description\": \"A savory onion pie.\"\n    },\n    \"message\": \"Favorite retrieved successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "favoriteByRecipeId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseApi}}/user/favorites/3",
+							"host": [
+								"{{BaseApi}}"
+							],
+							"path": [
+								"user",
+								"favorites",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "removeFavorite",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseApi}}/user/favorites/3",
+									"host": [
+										"{{BaseApi}}"
+									],
+									"path": [
+										"user",
+										"favorites",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 31 Dec 2023 23:15:08 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 31 Dec 2023 23:15:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": null,\n    \"message\": \"Favorite removed successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "userById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "currentUser",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 04:51:56 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Dec 2023 04:51:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"firstName\": \"Alice\",\n        \"lastName\": \"M\",\n        \"name\": \"Alice M\",\n        \"email\": \"alice@email.com\",\n        \"imagePath\": \"/path/to/image1.jpg\",\n        \"category\": \"admin\",\n        \"createdAt\": \"2023-12-25 05:28:55\",\n        \"updatedAt\": \"2023-12-25 05:28:55\"\n    },\n    \"message\": \"User retrieved successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "newUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
