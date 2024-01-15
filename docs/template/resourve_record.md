@@ -1,32 +1,32 @@
-# 资源记录
+# Resource Record
 
-本文件用于记录项目中使用的所有外部资源。
+This document is used to record all external resources used in the project.
 
-## 图片资源
+## Image Resources
 
-| 资源名称 | 来源网站 | 资源链接 | 使用日期 | 使用方式 | 相关说明 |
+| Resource Name | Source Website | Resource Link | Date of Use | Usage Method | Related Explanation |
 | --- | --- | --- | --- | --- | --- |
-| 示例图片 | [Unsplash](https://unsplash.com) | [链接地址](https://unsplash.com/photos/example) | 2023-11-07 | 背景图 | 用于首页背景 |
+| Example Image | [Unsplash](https://unsplash.com) | [Link Address](https://unsplash.com/photos/example) | 2023-11-07 | Background Image | Used for homepage background |
 | ... | ... | ... | ... | ... | ... |
 
-## 字体资源
+## Font Resources
 
-| 资源名称 | 来源网站 | 资源链接 | 使用日期 | 使用方式 | 相关说明 |
+| Resource Name | Source Website | Resource Link | Date of Use | Usage Method | Related Explanation |
 | --- | --- | --- | --- | --- | --- |
-| Open Sans | [Google Fonts](https://fonts.google.com) | [链接地址](https://fonts.google.com/specimen/Open+Sans) | 2023-11-07 | 网页字体 | 用于正文和标题 |
+| Open Sans | [Google Fonts](https://fonts.google.com) | [Link Address](https://fonts.google.com/specimen/Open+Sans) | 2023-11-07 | Web Font | Used for body text and headings |
 | ... | ... | ... | ... | ... | ... |
 
-## 第三方库和框架
+## Third-Party Libraries and Frameworks
 
-| 资源名称 | 来源网站 | 资源链接 | 使用日期 | 使用方式 | 相关说明 |
+| Resource Name | Source Website | Resource Link | Date of Use | Usage Method | Related Explanation |
 | --- | --- | --- | --- | --- | --- |
-| React | [React 官网](https://reactjs.org) | [链接地址](https://reactjs.org/) | 2023-11-07 | 前端框架 | 用于构建用户界面 |
+| React | [React Official Website](https://reactjs.org) | [Link Address](https://reactjs.org/) | 2023-11-07 | Frontend Framework | Used to build user interfaces |
 | ... | ... | ... | ... | ... | ... |
 
-## 其他资源
+## Other Resources
 
-| 资源名称 | 来源网站 | 资源链接 | 使用日期 | 使用方式 | 相关说明 |
+| Resource Name | Source Website | Resource Link | Date of Use | Usage Method | Related Explanation |
 | --- | --- | --- | --- | --- | --- |
 | ... | ... | ... | ... | ... | ... |
 
-请确保遵守所有资源的版权和使用许可要求。
+Please ensure compliance with all copyright and usage permissions of the resources.
