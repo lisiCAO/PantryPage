@@ -1,10 +1,10 @@
 import React from 'react';
-import { camelCaseToNormal } from './../../assets/util/util'
+import { camelCaseToWords } from './../../assets/util/util';
 import './StatisticsCard.scss';
 
 const StatisticsCard = ({ title, data, onClick }) => {
     const renderDataContent = (key, value) => {
-        let displayKey = camelCaseToNormal(key);
+        let displayKey = camelCaseToWords(key);
 
         if (key === 'mostPopularRecipe' || key === 'mostUsedIngredient') {
             return <p key={key}>{`${displayKey}: ${value.name || value.recipe_name} (Count: ${value.recipes_count || value.reviews_count})`}</p>;
