@@ -33,7 +33,7 @@ Recipe Web Application (PantryPage) is a full-stack web application designed for
 - Backend APIs can be accessed at `http://localhost:8000/api`.
 
 #### API Documentation
-- Detailed API documentation is available at `[https://documenter.getpostman.com/view/31315195/2s9Ykn8hEY]`.
+- Detailed API documentation is available at `[API Doc] (https://documenter.getpostman.com/view/31315195/2s9Ykn8hEY)`.
 
 #### Contributing
 - Guidelines for contributing to the project are available in the `CONTRIBUTING.md` file.
