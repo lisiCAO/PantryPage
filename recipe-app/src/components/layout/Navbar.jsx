@@ -13,7 +13,7 @@ const Navbar = ({ onLoginClick, isLoggedIn, user, onLogout, navigateTo }) => {
     return (
         <nav className="navbar">
             <div className="navbar__logo">
-                <img src="logo.png" alt="logo" className="navbar__logo-img" />
+                <img src="https://img.icons8.com/ios/50/000000/food.png" alt="logo" />
             </div>
             <div className="navbar__title" onClick={handleLogoClick}>Recipe Web</div>
             {!isLoggedIn ?

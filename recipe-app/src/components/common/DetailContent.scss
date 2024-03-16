@@ -1,5 +1,6 @@
 @import "./../../assets/styles/variables";
 @import "./../../assets/styles/mixins";
+
 .detail-content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -10,7 +11,8 @@
     &__title,
     &__image-container,
     &__instruction,
-    &__metadata {
+    &__metadata,
+    &__ingredients {  
         grid-column: 1 / -1;
     }
 
@@ -29,13 +31,17 @@
         margin-bottom: $spacing-medium;
     }
 
-    &__instructions {
+    &__instructions,
+    &__ingredients {  
         font-size: $font-size-normal;
         color: $font-color;
         margin-bottom: $spacing-large;
     }
 
-    &__item {
+    &__item,
+    .ingredient-item {  
+        display: flex;
+        justify-content: space-between;  
         font-size: $font-size-small;
         color: $text-color-light;
         margin-bottom: $spacing-small;

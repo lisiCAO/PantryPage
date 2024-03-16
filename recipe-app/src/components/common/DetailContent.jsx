@@ -24,6 +24,10 @@ const DetailContent = ({ data, config }) => {
                 return <ImageComponent key={key} src={imageUrl} alt={data[config.title] || "Default"} />;
             case config.instructions:
                 return <InstructionComponent key={key} value={value} />;
+            case 'ingredients':  
+                return value.map((ingredient, index) => (
+                    <IngredientItemComponent key={index} ingredient={ingredient} />
+                ));
             default:
                 return <DetailItemComponent key={key} label={camelCaseToWords(key)} value={value} />;
         }
@@ -44,3 +48,11 @@ const DetailContent = ({ data, config }) => {
 
 export default DetailContent;
 
+const IngredientItemComponent = ({ ingredient }) => {
+    return (
+        <div className="ingredient-item">
+            <div className="ingredient-name">{ingredient.name}</div>
+            <div className="ingredient-quantity">{ingredient.quantity} {ingredient.unit}</div>
+        </div>
+    );
+};
