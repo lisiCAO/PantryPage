@@ -16,9 +16,8 @@
     display: flex;
     align-items: center;
 
-    &-img {
-      width: 30px;
-      height: 30px;
+    &-svg {
+      color:bisque;
       margin-left: $spacing-small;
     }
   }
@@ -65,3 +64,4 @@
     @include button-style($secondary-color, white); 
   }
 }
+
