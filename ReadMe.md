@@ -43,3 +43,15 @@ Recipe Web Application (PantryPage) is a full-stack web application designed for
 
 #### Authors
 - `[Lisi Cao]` - Initial work
+
+#### DEMO
+- [demo](https://onedrive.live.com/embed?resid=C0FA22B06FDE161F%21225671&authkey=!ACF4u5Gs6EYGBAI)
+
+<img width="1322" alt="pantry-page-home" src="https://github.com/lisiCAO/PantryPage/assets/137085653/d77fe304-f37b-4122-8e4e-d59520a77e9b">
+<img width="1105" alt="pantry-page-detail" src="https://github.com/lisiCAO/PantryPage/assets/137085653/a570c99f-ada5-4b6b-9701-b9a5ec3604f9">
+<img width="1107" alt="pantry-page-comment" src="https://github.com/lisiCAO/PantryPage/assets/137085653/48520d19-4445-46d0-bef7-4b8911140d63">
+<img width="1105" alt="pantry-page-user" src="https://github.com/lisiCAO/PantryPage/assets/137085653/d114842c-56e3-40e6-982e-bc1fe3670929">
+
+<img width="1107" alt="pantry-page-modal" src="https://github.com/lisiCAO/PantryPage/assets/137085653/acf1110f-c79c-454e-9338-2f866cc33f8b">
+<img width="1107" alt="pantry-page-admin" src="https://github.com/lisiCAO/PantryPage/assets/137085653/3a7ee68e-3456-4b80-827f-cc123dbb986c">
+<img width="1105" alt="pantry-page-recipe" src="https://github.com/lisiCAO/PantryPage/assets/137085653/7dc9e300-a67a-4d30-8e02-ae0d20db7ede">
