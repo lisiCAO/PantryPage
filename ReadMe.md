@@ -22,7 +22,7 @@ Recipe Web Application (PantryPage) is a full-stack web application designed for
    - Docker
    - Docker Compose
 2. **Clone the Repository**:
-   - `git clone [https://github.com/lisiCAO/recipe-web.gity_url]`
+   - `git clone https://github.com/lisiCAO/PantryPage.git`
 3. **Environment Setup**:
    - Copy `.env.example` to `.env` and configure the environment variables.
 4. **Docker Compose**:
