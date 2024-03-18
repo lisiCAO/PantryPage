@@ -153,7 +153,6 @@ class UserController extends Controller
                 return $this->sendError('Unauthorized', [], 403);
             }
 
-
             $validatedData = $request->validate([
                 'first_name' => 'required|string|max:50',
                 'last_name' => 'required|string|max:50',
@@ -164,9 +163,6 @@ class UserController extends Controller
                 'location' => 'nullable|string|max:50',
                 'category' => 'nullable|string|max:50',
             ]);
-            if (!empty($validatedData['password'])) {
-                $validatedData['password'] = Hash::make($validatedData['password']);
-            }
 
             if (!empty($validatedData['profile_image_path']) && !empty($user->profile_image_path)) {
                 // delete previous img
@@ -238,10 +234,6 @@ class UserController extends Controller
             $favorites = UserFavorite::with(['user', 'recipe'])
             ->where('user_id', $userId)
             ->get();
-
-            // if ($favorites->isEmpty()) {
-            //     return $this->sendError('Favorites not found', [], 404);
-            // }
     
             return $this->sendResponse(UserFavoriteResource::collection($favorites), 'Favorites fetched successfully');
         } catch (\Exception $e) {

@@ -1,7 +1,7 @@
 import React from "react";
 import "./FormInput.scss";
 
-const FormInput = ({ name, label, type = "text", value, onChange }) => (
+const FormInput = ({ name, label, type = "text", value, onChange, onKeyDown }) => (
     <div className="form-input">
         <label htmlFor={name} className="form-input__label">{label}</label>
         <input
@@ -11,7 +11,7 @@ const FormInput = ({ name, label, type = "text", value, onChange }) => (
             className="form-input__input"
             value={value}
             onChange={onChange}
-            onKeyPress={onKeyPress}
+            onKeyDown={onKeyDown}
         />
     </div>
 );
