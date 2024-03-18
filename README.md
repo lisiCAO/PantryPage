@@ -12,7 +12,7 @@ Recipe Web Application (PantryPage) is a full-stack web application designed for
 
 #### Tech Stack
 - **Backend**: Laravel
-- **Frontend**: React
+- **Frontend**: React + SCSS
 - **Database**: MySQL
 - **Authentication**: JWT
 - **Containerization**: Docker
@@ -23,9 +23,7 @@ Recipe Web Application (PantryPage) is a full-stack web application designed for
    - Docker Compose
 2. **Clone the Repository**:
    - `git clone https://github.com/lisiCAO/PantryPage.git`
-3. **Environment Setup**:
-   - Copy `.env.example` to `.env` and configure the environment variables.
-4. **Docker Compose**:
+3. **Docker Compose**:
    - Run `docker-compose up` to build and start the containers.
 
 #### Usage
@@ -36,7 +34,7 @@ Recipe Web Application (PantryPage) is a full-stack web application designed for
 - Detailed API documentation is available at [API Doc](https://documenter.getpostman.com/view/31315195/2s9Ykn8hEY).
 
 #### Contributing
-- Guidelines for contributing to the project are available in the `CONTRIBUTING.md` file.
+- comming soon
 
 #### License
 - This project is licensed under the `[MIT]`.
