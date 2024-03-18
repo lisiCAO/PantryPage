@@ -13,7 +13,7 @@ const Navbar = ({ onLoginClick, isLoggedIn, user, onLogout, navigateTo }) => {
     return (
         <nav className="navbar">
             <div className="navbar__logo">
-            <svg  class="navbar__logo-svg" fill="bisque" height="40px" width="40px" version="1.1" id="Layer_1" 
+            <svg  className="navbar__logo-svg" fill="bisque" height="40px" width="40px" version="1.1" id="Layer_1" 
                     viewBox="0 0 290.626 290.626" >
                 <g>
                     <g>

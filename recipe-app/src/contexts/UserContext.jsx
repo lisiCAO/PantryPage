@@ -83,6 +83,7 @@ export const UserProvider = ({ children }) => {
   const handleCreate = async (newUser) => {
     await ApiService.createUser(newUser)
       .then(addedUser => {
+        setUser(addedUser);
         showMessage('success', 'User created successfully');
       })
   };

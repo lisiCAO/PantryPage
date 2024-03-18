@@ -11,6 +11,7 @@ const FormInput = ({ name, label, type = "text", value, onChange }) => (
             className="form-input__input"
             value={value}
             onChange={onChange}
+            onKeyPress={onKeyPress}
         />
     </div>
 );

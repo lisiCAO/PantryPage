@@ -31,6 +31,11 @@ const LoginModal = ({ onLogin, onClose, onOpenCreateAccount }) => {
                         type="email"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
+                        onKeyPress={e => {
+                            if (e.key === 'Enter') {
+                                onLogin(email, password);
+                            }
+                        }}
                     />
                     <FormInput
                         className="login-modal__input"
@@ -39,6 +44,11 @@ const LoginModal = ({ onLogin, onClose, onOpenCreateAccount }) => {
                         type="password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
+                        onKeyPress={e => {
+                            if (e.key === 'Enter') {
+                                onLogin(email, password);
+                            }
+                        }}
                     />
                     <Message className="login-modal__message" message={message} />
                     <Button
