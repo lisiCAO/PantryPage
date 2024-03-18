@@ -34,4 +34,8 @@ RUN composer update --no-scripts && composer install --no-scripts
 
 RUN composer clear-cache
 
-CMD [ "php", "artisan", "serve", "--host=0.0.0.0"]
+COPY startup.sh /usr/local/bin/startup.sh
+
+RUN chmod +x /usr/local/bin/startup.sh
+
+CMD ["/usr/local/bin/startup.sh"]
