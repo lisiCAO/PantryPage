@@ -20,7 +20,7 @@ const DetailContent = ({ data, config }) => {
             case config.title:
                 return <TitleComponent key={key} value={value} />;
             case config.image:
-                const imageUrl = `http://localhost:8000${value}`;
+                const imageUrl = `https://pantrypage-back.azurewebsites.net${value}`;
                 return <ImageComponent key={key} src={imageUrl} alt={data[config.title] || "Default"} />;
             case config.instructions:
                 return <InstructionComponent key={key} value={value} />;
@@ -37,7 +37,7 @@ const DetailContent = ({ data, config }) => {
         <div className="detail-content">
             {config.title && <TitleComponent key="title" value={data[config.title]} />}
             {renderMetadata()}
-            {config.image && <ImageComponent key="image" src={`http://localhost:8000${data[config.image]}`} alt={data[config.title] || "Default"} />}
+            {config.image && <ImageComponent key="image" src={`https://pantrypage-back.azurewebsites.net${data[config.image]}`} alt={data[config.title] || "Default"} />}
             {Object.entries(data).map(([key, value]) => {
                 if (config.ignoreFields.includes(key) || key === config.title || key === config.image || key === config.updatedAt || key === config.createdBy) return null;
                 return renderDetail(key, value);

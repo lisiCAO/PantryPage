@@ -18,7 +18,7 @@ const RecipeCard = ({ recipe, onOpenDetails, onDelete, onToggleFavorite }) => {
     return (
         <div className="recipe-card" onClick={() => onOpenDetails(recipe)}>
             <img
-                src={`http://localhost:8000${recipe.imagePath}`}
+                src={`https://pantrypage-back.azurewebsites.net${recipe.imagePath}`}
                 onError={(e) => { e.target.onerror = null; e.target.src = defaultImage; }}
                 alt={recipe.name}
                 className="recipe-card__image"
