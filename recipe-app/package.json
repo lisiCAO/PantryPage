@@ -2,7 +2,7 @@
   "name": "recipe-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lisiCAO.github.io/PantryPage",
+  "homepage": "https://ashy-water-02ecdf90f.5.azurestaticapps.net/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
