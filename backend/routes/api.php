@@ -23,14 +23,14 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 // Login
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/refresh-token', [AuthController::class, 'refreshToken'])->middleware('parse.jwt');
+Route::post('/refresh-token', [AuthController::class, 'refreshToken']);
 
 Route::apiResource('recipes', RecipeController::class)->only(['index', 'show']);
 Route::apiResource('reviews', ReviewController::class)->only(['index', 'show']);
 Route::apiResource('users', UserController::class)->only(['store']);
 Route::get('/recipes/{recipeId}/reviews', [ReviewController::class, 'showByRecipe']);
 
-Route::middleware(['parse.jwt', 'jwt.auth','user'])->group(function () {
+Route::middleware(['jwt.auth','user'])->group(function () {
     // User
     Route::get('/user/recipes', [RecipeController::class, 'showByUser']);
     Route::get('/user/reviews', [ReviewController::class, 'showByUser']);

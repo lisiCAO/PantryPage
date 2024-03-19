@@ -29,9 +29,7 @@ class AuthController extends Controller
             return $this->sendError('Invalid email or password', [], 401);
         }
     
-        $cookie = cookie('jwt', $token, 60); // Create a cookie with a 60-minute expiration time
-    
-        return $this->createNewToken($token)->withCookie($cookie);
+        return $this->createNewToken($token);
     }
 
     /**
@@ -41,10 +39,10 @@ class AuthController extends Controller
      */
     public function logout() {
         $user = Auth::user();
-        // Clear the cookie
-        $cookie = \Cookie::forget('jwt');
+ 
+        JWTAuth::invalidate(JWTAuth::getToken());
 
-        return $this->sendResponse($user->email,'Successfully logged out')->withCookie($cookie);
+        return $this->sendResponse($user->email,'Successfully logged out');
     }
 
     /**
@@ -66,13 +64,11 @@ class AuthController extends Controller
     }
     public function refreshToken(Request $request) {
         try {
-            // check if token is valid with JWTAuth
             $refreshToken = JWTAuth::getToken();
             
-            $newToken = JWTAuth::refresh($refreshToken); // Refresh the token
-            // Create a cookie with a 60-minute expiration time
-            $cookie = cookie('jwt', $newToken, 60);
-            return $this->sendResponse(['token' => $newToken], 'Token refreshed')->withCookie($cookie);
+            $newToken = JWTAuth::refresh($refreshToken); 
+
+            return $this->sendResponse(['token' => $newToken], 'Token refreshed');
 
         } catch (TokenExpiredException $e) {
             return $this->sendError('Token expired', [], 401);

@@ -275,6 +275,9 @@ const ApiService = {
       body: JSON.stringify(credentials),
     });
     const data = await handleResponse(response);
+    if (data.token) { 
+      localStorage.setItem('token', data.token); 
+    }
     return data;
   },
 
@@ -302,12 +305,17 @@ const ApiService = {
 
 // Default Option
 const fetchWithConfig = (url, options = {}) => {
-  const defaultOptions = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
+  const token = localStorage.getItem('token'); 
+  const headers = {
+    "Content-Type": "application/json",
+    ...(token ? { 'Authorization': `Bearer ${token}` } : {}), 
   };
+
+  const defaultOptions = {
+    headers,
+    credentials: "include", 
+  };
+
   return fetch(url, { ...defaultOptions, ...options });
 };
 
