@@ -1,6 +1,6 @@
 import { mockReviews } from "./mockReviews";
 import { mockRecipesList, mockRecipeDetails, mockRecipeDetails2 } from "./mockRecipes";
-const API_BASE_URL = process.env.REACT_APP_API_URL;
+const API_BASE_URL = "https://pantrypage-back.azurewebsites.net/api";
 const useMockData = process.env.REACT_APP_USE_MOCK_DATA === "true";
 
 const ApiService = {
