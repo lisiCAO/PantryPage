@@ -26,7 +26,6 @@ lerna-debug.log*
 .idea/
 
 # build output
-build/
 dist/
 /temp
 
